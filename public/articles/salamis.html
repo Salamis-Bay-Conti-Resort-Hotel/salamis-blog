@@ -23,7 +23,7 @@
       line-height: 1.8;
     }
 
-    /* Header için %20 boşluk */
+    /* %20 viewport header boşluğu */
     .spacer {
       height: 20vh;
       min-height: 140px;
@@ -36,7 +36,10 @@
     }
 
     article {
+      background: none;
       padding: 0;
+      box-shadow: none;
+      border-radius: 0;
     }
 
     header {
@@ -47,98 +50,66 @@
       font-size: 2.6rem;
       line-height: 1.2;
       margin: 0 0 1rem;
+      color: #ffffff;
     }
 
     header .meta {
       font-size: 0.95rem;
-      opacity: 0.85;
+      color: #ffffff;
+      opacity: 0.8;
     }
 
     header .meta span {
       margin-right: 1rem;
     }
 
-    /* Hero görsel */
-    .hero {
-      position: relative;
-      margin-bottom: 3.5rem;
-      border-radius: 18px;
+    .hero-image {
+      margin: 3rem 0;
+      border-radius: 16px;
       overflow: hidden;
     }
 
-    .hero img {
+    .hero-image img {
       width: 100%;
-      height: 520px;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.2),
-        rgba(0, 0, 0, 0.65)
-      );
-    }
-
-    .content {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .content p {
-      font-size: 1.08rem;
-      margin: 1.6rem 0;
-      opacity: 0.95;
-    }
-
-    .content h2 {
+    article h2 {
       margin-top: 4rem;
       font-size: 1.9rem;
+      color: #ffffff;
+    }
+
+    article p {
+      margin: 1.6rem 0;
+      font-size: 1.08rem;
+      color: #ffffff;
+      opacity: 0.95;
     }
 
     blockquote {
       margin: 3rem 0;
       padding-left: 1.5rem;
       border-left: 4px solid #c9a45c;
+      color: #ffffff;
       font-style: italic;
-      font-size: 1.1rem;
+      background: none;
       opacity: 0.95;
-    }
-
-    /* Section image */
-    .section-image {
-      margin: 3.5rem 0;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .section-image img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      display: block;
     }
 
     footer {
       margin-top: 5rem;
       padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
       font-size: 0.9rem;
+      color: #ffffff;
       opacity: 0.75;
     }
 
     @media (max-width: 640px) {
       header h1 {
         font-size: 2rem;
-      }
-
-      .hero img,
-      .section-image img {
-        height: 320px;
       }
     }
   </style>
@@ -158,54 +129,42 @@
         </div>
       </header>
 
-      <!-- Hero Image -->
-      <div class="hero">
+      <div class="hero-image">
         <img
           src="https://images.unsplash.com/photo-1501117716987-c8e1ecb2106f"
           alt="Salamis Bay Conti Resort Hotel"
         />
       </div>
 
-      <div class="content">
-        <p>
-          Salamis Bay Conti Resort Hotel, Akdeniz’in eşsiz doğasıyla çevrili,
-          konfor ve lüksü bir arada sunan özel bir tatil destinasyonudur.
-        </p>
+      <p>
+        Salamis Bay Conti Resort Hotel, Akdeniz’in eşsiz doğasıyla çevrili,
+        konfor ve lüksü bir arada sunan özel bir tatil destinasyonudur.
+      </p>
 
-        <p>
-          Modern mimarisi, geniş plaj alanı ve dünya standartlarındaki
-          hizmet anlayışıyla misafirlerine benzersiz bir konaklama deneyimi
-          yaşatır.
-        </p>
+      <p>
+        Modern mimarisi, geniş plaj alanı ve dünya standartlarındaki
+        hizmet anlayışıyla misafirlerine unutulmaz bir deneyim yaşatır.
+      </p>
 
-        <blockquote>
-          “Tatil, sadece dinlenmek değil; kendinizi yeniden keşfetmektir.”
-        </blockquote>
+      <blockquote>
+        “Tatil, sadece dinlenmek değil; kendinizi yeniden keşfetmektir.”
+      </blockquote>
 
-        <!-- Section Image -->
-        <div class="section-image">
-          <img
-            src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21"
-            alt="Akdeniz sahil tatili"
-          />
-        </div>
+      <h2>Neden Salamis Bay Conti?</h2>
 
-        <h2>Neden Salamis Bay Conti?</h2>
+      <p>
+        Aile dostu konsepti, gurme mutfağı ve zengin aktivite seçenekleriyle
+        her yaş grubuna hitap eden bir tatil sunar.
+      </p>
 
-        <p>
-          Aile dostu konsepti, gurme mutfağı ve zengin aktivite seçenekleriyle
-          her yaş grubuna hitap eden bir tatil anlayışı sunar.
-        </p>
+      <p>
+        Spa & wellness alanları, deniz manzaralı odalar ve profesyonel
+        hizmet anlayışı ile tatiliniz boyunca her detay düşünülür.
+      </p>
 
-        <p>
-          Spa & wellness alanları, deniz manzaralı odalar ve profesyonel
-          hizmet anlayışı sayesinde tatiliniz boyunca her detay düşünülür.
-        </p>
-
-        <footer>
-          Bu içerik Salamis Bay Conti Resort Hotel blogu için hazırlanmıştır.
-        </footer>
-      </div>
+      <footer>
+        Bu içerik Salamis Bay Conti Resort Hotel blogu için hazırlanmıştır.
+      </footer>
     </article>
   </main>
 </body>
