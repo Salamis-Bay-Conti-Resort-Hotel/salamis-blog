@@ -10,14 +10,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    :root {
-      --bg: #f5f7fa;
-      --card-bg: #ffffff;
-      --text-main: #1f2937;
-      --text-muted: #6b7280;
-      --accent: #c9a45c;
-    }
-
     * {
       box-sizing: border-box;
     }
@@ -26,12 +18,12 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, #eef2f7 0%, var(--bg) 40%);
-      color: var(--text-main);
-      line-height: 1.7;
+      background: transparent;
+      color: #ffffff;
+      line-height: 1.8;
     }
 
-    /* %20 viewport header boşluğu */
+    /* Header için %20 boşluk */
     .spacer {
       height: 20vh;
       min-height: 140px;
@@ -44,86 +36,115 @@
     }
 
     article {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 3rem 3rem 3.5rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+      padding: 0;
     }
 
     header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       line-height: 1.2;
       margin: 0 0 1rem;
     }
 
     header .meta {
-      font-size: 0.9rem;
-      color: var(--text-muted);
+      font-size: 0.95rem;
+      opacity: 0.85;
     }
 
     header .meta span {
       margin-right: 1rem;
     }
 
-    .hero-image {
-      margin: 2.5rem 0;
-      border-radius: 14px;
+    /* Hero görsel */
+    .hero {
+      position: relative;
+      margin-bottom: 3.5rem;
+      border-radius: 18px;
       overflow: hidden;
     }
 
-    .hero-image img {
+    .hero img {
       width: 100%;
-      height: auto;
+      height: 520px;
+      object-fit: cover;
       display: block;
     }
 
-    article h2 {
-      margin-top: 3rem;
-      font-size: 1.8rem;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.65)
+      );
     }
 
-    article p {
-      margin: 1.4rem 0;
-      font-size: 1.05rem;
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .content p {
+      font-size: 1.08rem;
+      margin: 1.6rem 0;
+      opacity: 0.95;
+    }
+
+    .content h2 {
+      margin-top: 4rem;
+      font-size: 1.9rem;
     }
 
     blockquote {
-      margin: 2.5rem 0;
+      margin: 3rem 0;
       padding-left: 1.5rem;
-      border-left: 4px solid var(--accent);
-      color: #374151;
+      border-left: 4px solid #c9a45c;
       font-style: italic;
-      background: #fafafa;
-      padding: 1.5rem 1.5rem 1.5rem 2rem;
-      border-radius: 8px;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+
+    /* Section image */
+    .section-image {
+      margin: 3.5rem 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .section-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
     }
 
     footer {
-      margin-top: 4rem;
+      margin-top: 5rem;
       padding-top: 2rem;
-      border-top: 1px solid #e5e7eb;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
       font-size: 0.9rem;
-      color: var(--text-muted);
+      opacity: 0.75;
     }
 
     @media (max-width: 640px) {
-      article {
-        padding: 2rem 1.75rem;
-      }
-
       header h1 {
         font-size: 2rem;
+      }
+
+      .hero img,
+      .section-image img {
+        height: 320px;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- Header alanı için boşluk -->
   <div class="spacer"></div>
 
   <main class="container">
@@ -137,42 +158,54 @@
         </div>
       </header>
 
-      <div class="hero-image">
+      <!-- Hero Image -->
+      <div class="hero">
         <img
           src="https://images.unsplash.com/photo-1501117716987-c8e1ecb2106f"
           alt="Salamis Bay Conti Resort Hotel"
         />
       </div>
 
-      <p>
-        Salamis Bay Conti Resort Hotel, Akdeniz’in eşsiz doğasıyla çevrili,
-        konfor ve lüksü bir arada sunan özel bir tatil destinasyonudur.
-      </p>
+      <div class="content">
+        <p>
+          Salamis Bay Conti Resort Hotel, Akdeniz’in eşsiz doğasıyla çevrili,
+          konfor ve lüksü bir arada sunan özel bir tatil destinasyonudur.
+        </p>
 
-      <p>
-        Modern mimarisi, geniş plaj alanı ve dünya standartlarındaki
-        hizmet anlayışıyla misafirlerine unutulmaz bir deneyim yaşatır.
-      </p>
+        <p>
+          Modern mimarisi, geniş plaj alanı ve dünya standartlarındaki
+          hizmet anlayışıyla misafirlerine benzersiz bir konaklama deneyimi
+          yaşatır.
+        </p>
 
-      <blockquote>
-        “Tatil, sadece dinlenmek değil; kendinizi yeniden keşfetmektir.”
-      </blockquote>
+        <blockquote>
+          “Tatil, sadece dinlenmek değil; kendinizi yeniden keşfetmektir.”
+        </blockquote>
 
-      <h2>Neden Salamis Bay Conti?</h2>
+        <!-- Section Image -->
+        <div class="section-image">
+          <img
+            src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21"
+            alt="Akdeniz sahil tatili"
+          />
+        </div>
 
-      <p>
-        Aile dostu konsepti, gurme mutfağı ve zengin aktivite seçenekleriyle
-        her yaş grubuna hitap eden bir tatil sunar.
-      </p>
+        <h2>Neden Salamis Bay Conti?</h2>
 
-      <p>
-        Spa & wellness alanları, deniz manzaralı odalar ve profesyonel
-        hizmet anlayışı ile tatiliniz boyunca her detay düşünülür.
-      </p>
+        <p>
+          Aile dostu konsepti, gurme mutfağı ve zengin aktivite seçenekleriyle
+          her yaş grubuna hitap eden bir tatil anlayışı sunar.
+        </p>
 
-      <footer>
-        Bu içerik Salamis Bay Conti Resort Hotel blogu için hazırlanmıştır.
-      </footer>
+        <p>
+          Spa & wellness alanları, deniz manzaralı odalar ve profesyonel
+          hizmet anlayışı sayesinde tatiliniz boyunca her detay düşünülür.
+        </p>
+
+        <footer>
+          Bu içerik Salamis Bay Conti Resort Hotel blogu için hazırlanmıştır.
+        </footer>
+      </div>
     </article>
   </main>
 </body>
