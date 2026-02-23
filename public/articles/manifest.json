@@ -11,5 +11,16 @@
       "slug": "best-places-to-visit-in-cyprus",
       "title": "The Best Places to Visit in Cyprus | Travel Guide"
     }
+  },
+  {
+    "id": "cyprus-souvenirs-guide",
+    "tr": {
+      "slug": "kibristan-alinacak-hediyelik-esyalar",
+      "title": "Kıbrıs’a Özgü Hediyelik Eşyalar"
+    },
+    "en": {
+      "slug": "souvenirs-to-buy-in-cyprus",
+      "title": "What Souvenirs to Buy in Cyprus? A Local’s Shopping Guide"
+    }
   }
 ]
