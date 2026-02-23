@@ -3,155 +3,151 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kıbrıs Gezilecek Yerler Rehberi</title>
+
+<title>Kıbrıs Gezilecek Yerler Rehberi: Doğa, Tarih ve Kültür</title>
+
+<meta name="description"
+content="Kıbrıs’ta gezilecek yerler arasında öne çıkan noktaları keşfedin. Tatilinizi planlamadan önce mutlaka görmeniz gereken yerleri hemen inceleyin!" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Kıbrıs Gezilecek Yerler Rehberi: Doğa, Tarih ve Kültür" />
+<meta property="og:description"
+content="Kıbrıs’ta gezilecek yerler arasında öne çıkan noktaları keşfedin. Tatilinizi planlamadan önce mutlaka görmeniz gereken yerleri hemen inceleyin!" />
 
 <style>
-:root{
-  --bg:#0f172a;
-  --card:#1e293b;
-  --accent:#38bdf8;
-  --soft:#94a3b8;
-  --white:#f8fafc;
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.65;
+  margin: 0;
+  color: #ffffffBF;
 }
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto;
-  background:var(--bg);
-  color:var(--white);
-  line-height:1.7;
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
 }
 
-header.hero{
-  padding:80px 20px;
-  text-align:center;
-  background:linear-gradient(135deg,#0f172a,#1e293b);
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 12px; }
+h2 { margin-top: 32px; font-size: 1.4rem; }
+h3 { margin-top: 22px; font-size: 1.15rem; }
+
+.lead { font-size: 1.05rem; opacity: .95; }
+
+figure {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 12px;
 }
 
-.hero h1{
-  font-size:clamp(1.8rem,4vw,3rem);
-  margin-bottom:16px;
+figcaption { font-size: .95rem; opacity: .85; }
+
+a {
+  word-break: break-word;
+  color: #ffffff80;
 }
 
-.hero p{
-  max-width:750px;
-  margin:auto;
-  color:var(--soft);
+.meta { margin: 12px 0 0; font-size: .95rem; opacity: .8; }
+
+.callout {
+  margin-top: 28px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.08);
 }
 
-main{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 20px 80px;
+/* --- Responsive Grid List --- */
+.list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px 24px;
+  margin: 16px 0 24px;
+  padding: 0;
+  list-style: none;
 }
 
-section{
-  margin-bottom:60px;
+.list-grid li {
+  position: relative;
+  padding-left: 18px;
 }
 
-h2{
-  font-size:1.8rem;
-  margin-bottom:20px;
-  border-left:4px solid var(--accent);
-  padding-left:12px;
+.list-grid li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  opacity: .6;
 }
 
-.card{
-  background:var(--card);
-  padding:24px;
-  border-radius:16px;
-  margin-bottom:20px;
-  transition:.3s;
+/* --- Responsive Table --- */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.15);
 }
 
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
 }
 
-.table-wrapper{
-  overflow-x:auto;
-  border-radius:12px;
+th, td {
+  padding: 12px 14px;
+  text-align: left;
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:600px;
+th {
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,.2);
 }
 
-th,td{
-  padding:14px;
-  text-align:left;
+td {
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
-th{
-  background:rgba(56,189,248,.2);
-}
-
-tr:nth-child(even){
-  background:rgba(255,255,255,.05);
-}
-
-.badge{
-  display:inline-block;
-  padding:6px 12px;
-  background:var(--accent);
-  color:#000;
-  font-size:.8rem;
-  border-radius:999px;
-  margin-bottom:12px;
-}
-
-.callout{
-  background:linear-gradient(135deg,#1e293b,#334155);
-  padding:40px;
-  border-radius:20px;
-  text-align:center;
-}
-
-.callout h2{
-  border:none;
-  padding:0;
-}
-
-footer{
-  text-align:center;
-  padding:40px 20px;
-  color:var(--soft);
-  font-size:.9rem;
-}
-
-@media(max-width:768px){
-  .hero{
-    padding:60px 16px;
-  }
-  .card{
-    padding:18px;
-  }
+/* --- Mobile adjustments --- */
+@media (max-width: 768px) {
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.25rem; }
+  main { padding: 20px 14px 50px; }
 }
 </style>
 </head>
 
 <body>
-
-<header class="hero">
-  <h1>Kıbrıs’ta Gezilecek En İyi Yerler</h1>
-  <p>Akdeniz’in kalbinde doğa, tarih ve kültürün iç içe geçtiği rotalar. Tatilinizi planlamadan önce mutlaka göz atın.</p>
-</header>
-
 <main>
 
-<section>
-<h2>Öne Çıkan Destinasyonlar</h2>
+<header>
+<h1>Kıbrıs’ta Gezilecek En İyi Yerler</h1>
+
+<p class="lead">
+Akdeniz’in ortasında, temposu daha sakin akan bir ada… Kıbrıs; tarihi mirası,
+doğal manzaraları ve kültürel çeşitliliğiyle çok yönlü bir tatil deneyimi sunuyor.
+</p>
+
+<p>Kıbrıs gezilecek yerler arasında öne çıkan başlıca destinasyonlar:</p>
+
+<ul class="list-grid">
+<li>Girne Kalesi</li>
+<li>Bellapais Manastırı</li>
+<li>Salamis Antik Kenti</li>
+<li>Othello Kalesi</li>
+<li>Barbarlık Müzesi</li>
+<li>Venedik Sütunu</li>
+<li>Selimiye Camii</li>
+<li>Karpaz Yarımadası</li>
+<li>İkon Müzesi</li>
+<li>Maraş Mahallesi</li>
+</ul>
 
 <div class="table-wrapper">
 <table>
 <thead>
 <tr>
-<th>Yer</th>
+<th>Destinasyon</th>
 <th>Bölge</th>
 <th>Tür</th>
 <th>Öne Çıkan Özellik</th>
@@ -162,86 +158,55 @@ footer{
 <td>Girne Kalesi</td>
 <td>Girne</td>
 <td>Tarihi Yapı</td>
-<td>Liman manzarası ve Batık Gemi Müzesi</td>
+<td>Liman manzarası</td>
 </tr>
 <tr>
 <td>Bellapais Manastırı</td>
 <td>Girne</td>
-<td>Tarihi & Mimari</td>
-<td>Gotik mimari ve panoramik manzara</td>
+<td>Gotik Mimari</td>
+<td>Panoramik manzara</td>
 </tr>
 <tr>
 <td>Salamis Antik Kenti</td>
 <td>Gazimağusa</td>
 <td>Antik Kent</td>
-<td>Roma tiyatrosu ve bazilikalar</td>
+<td>Roma tiyatrosu</td>
 </tr>
 <tr>
 <td>St. Hilarion Kalesi</td>
-<td>Beşparmak</td>
+<td>Girne</td>
 <td>Kale</td>
 <td>700m yükseklikte manzara</td>
 </tr>
 <tr>
 <td>Altınkum Plajı</td>
 <td>Karpaz</td>
-<td>Doğa & Deniz</td>
-<td>Altın renkli kumlar</td>
+<td>Plaj</td>
+<td>Altın rengi kumlar</td>
 </tr>
 </tbody>
 </table>
 </div>
-</section>
+
+</header>
 
 <section>
-<h2>Girne: Turistik Merkez</h2>
+<h2>Kıbrıs’ta Tatil Planı Yapmadan Önce</h2>
 
-<div class="card">
-<span class="badge">En Popüler</span>
-<p>Akdeniz kıyısında konumlanan Girne; tarihi limanı, kaleleri ve dağ manzarası ile Kuzey Kıbrıs’ın en hareketli noktasıdır. Gün batımında liman çevresindeki restoranlar eşsiz bir atmosfer sunar.</p>
-</div>
-
-<div class="card">
-<h3>Bellapais Manastırı</h3>
-<p>1187 yılında inşa edilen manastır, Gotik mimarinin adadaki en etkileyici örneklerinden biridir. Özellikle gün batımı saatlerinde büyüleyici bir manzara sunar.</p>
-</div>
-
-</section>
-
-<section>
-<h2>Gazimağusa: Tarihle İç İçe</h2>
-
-<div class="card">
-<p>Othello Kalesi, Lala Mustafa Paşa Camii ve Salamis Antik Kenti ile Gazimağusa, adanın en güçlü tarih rotalarından biridir.</p>
-</div>
-
-</section>
-
-<section>
-<h2>Doğal Güzellikler</h2>
-
-<div class="card">
-<h3>Beşparmak Dağları & St. Hilarion</h3>
-<p>Girne’ye hakim zirvede yer alan kale, Kıbrıs’ın en etkileyici manzaralarından birini sunar.</p>
-</div>
-
-<div class="card">
-<h3>Karpaz Yarımadası</h3>
-<p>El değmemiş doğası ve Altınkum Plajı ile sakin bir deneyim arayanlar için ideal.</p>
-</div>
-
+<p>
+Ulaşım hava ve deniz yoluyla sağlanır. Ercan Havalimanı en sık tercih edilen giriş noktasıdır.
+Adada trafik soldan akar ve direksiyonlar sağdadır.
+</p>
 </section>
 
 <section class="callout">
-<h2>Salamis Bay Conti ile Konforlu Tatil</h2>
-<p>Salamis plajlarının kıyısında konumlanan resort; lüks konaklama, konserler, animasyonlar ve geniş organizasyon alanları ile tatilinizi deneyime dönüştürüyor.</p>
+<h2>Kıbrıs’ı Keşfet</h2>
+<p>
+Doğa, tarih ve denizi bir arada yaşamak isteyenler için Kıbrıs, yılın her döneminde
+keyifli bir rota sunar.
+</p>
 </section>
 
 </main>
-
-<footer>
-© 2026 Kıbrıs Gezi Rehberi
-</footer>
-
 </body>
 </html>
