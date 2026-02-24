@@ -1,701 +1,204 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>Kıbrıs’a Özgü Hediyelik Eşyalar</title>
-    <meta
-      name="description"
-      content="Kıbrıs’tan alınabilecek hediyelik eşyaları keşfedin. Yerel ürünler, el yapımı hediyeler ve sevdiklerinize özel alternatifler bu rehberde!"
-    />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="article" />
-    <meta property="og:locale" content="tr_TR" />
-    <meta property="og:title" content="Kıbrıs’a Özgü Hediyelik Eşyalar" />
-    <meta
-      property="og:description"
-      content="Kıbrıs’tan alınabilecek hediyelik eşyaları keşfedin. Yerel ürünler, el yapımı hediyeler ve sevdiklerinize özel alternatifler bu rehberde!"
-    />
-    <meta
-      property="og:image"
-      content="https://api2.salamisbayconti.com/storage/carousels/January2026/2x6fd1m7cTS6KEn0ilFH.webp"
-    />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kıbrıs’a Özgü Hediyelik Eşyalar" />
-    <meta
-      name="twitter:description"
-      content="Kıbrıs’tan alınabilecek hediyelik eşyaları keşfedin. Yerel ürünler, el yapımı hediyeler ve sevdiklerinize özel alternatifler bu rehberde!"
-    />
-    <meta
-      name="twitter:image"
-      content="https://api2.salamisbayconti.com/storage/carousels/January2026/2x6fd1m7cTS6KEn0ilFH.webp"
-    />
-
-    <style>
-      /* Renk yok: sadece düzen/okunabilirlik */
-      .blog-wrap {
-        max-width: 980px;
-        margin: 0 auto;
-      }
-
-      .hero {
-        display: grid;
-        gap: 1.25rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .hero__meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem 1rem;
-        opacity: 0.9;
-        font-size: 0.95rem;
-      }
-
-      .hero__img {
-        width: 100%;
-        height: auto;
-        border-radius: 14px;
-        display: block;
-      }
-
-      .lead {
-        font-size: 1.05rem;
-        line-height: 1.75;
-        margin-top: 0.25rem;
-        opacity: 0.95;
-      }
-
-      .toc {
-        border: 1px solid currentColor;
-        border-radius: 14px;
-        padding: 1rem;
-        margin: 1.5rem 0 2rem;
-        opacity: 0.95;
-      }
-      .toc h2 {
-        margin: 0 0 0.75rem 0;
-        font-size: 1.1rem;
-      }
-      .toc ol {
-        margin: 0;
-        padding-left: 1.2rem;
-        display: grid;
-        gap: 0.35rem;
-      }
-      .toc a {
-        text-decoration: none;
-      }
-
-      .grid {
-        display: grid;
-        gap: 1rem;
-      }
-      @media (min-width: 820px) {
-        .grid--2 {
-          grid-template-columns: 1fr 1fr;
-        }
-        .grid--3 {
-          grid-template-columns: 1fr 1fr 1fr;
-        }
-      }
-
-      .card {
-        border: 1px solid currentColor;
-        border-radius: 14px;
-        padding: 1rem;
-        backdrop-filter: blur(1px);
-      }
-      .card h3 {
-        margin-top: 0;
-      }
-
-      .badge {
-        border: 1px solid currentColor;
-        border-radius: 999px;
-        padding: 0.15rem 0.6rem;
-        display: inline-block;
-        font-size: 0.85rem;
-        opacity: 0.95;
-      }
-
-      .tip {
-        border: 1px dashed currentColor;
-        border-radius: 14px;
-        padding: 1rem;
-        margin: 1.25rem 0;
-      }
-      .tip strong {
-        display: inline-block;
-        margin-bottom: 0.25rem;
-      }
-
-      .checklist {
-        margin: 0.75rem 0 0;
-        padding-left: 1.2rem;
-        display: grid;
-        gap: 0.35rem;
-      }
-
-      .table-wrap {
-        overflow-x: auto;
-        border-radius: 14px;
-        border: 1px solid currentColor;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 720px;
-      }
-      th,
-      td {
-        border-bottom: 1px solid currentColor;
-        padding: 0.85rem 0.85rem;
-        vertical-align: top;
-        text-align: left;
-      }
-      th {
-        font-weight: 700;
-      }
-      tr:last-child td {
-        border-bottom: none;
-      }
-
-      .pill-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 0.75rem 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .pill-list li {
-        border: 1px solid currentColor;
-        border-radius: 999px;
-        padding: 0.25rem 0.65rem;
-        font-size: 0.9rem;
-        opacity: 0.95;
-      }
-
-      .section {
-        margin: 2rem 0;
-      }
-
-      .section h2 {
-        margin-bottom: 0.75rem;
-      }
-
-      .img-inline {
-        width: 100%;
-        height: auto;
-        border-radius: 14px;
-        display: block;
-        margin: 1rem 0;
-      }
-
-      .split {
-        display: grid;
-        gap: 1rem;
-        align-items: start;
-      }
-      @media (min-width: 900px) {
-        .split {
-          grid-template-columns: 1.1fr 0.9fr;
-        }
-      }
-
-      .mini {
-        font-size: 0.95rem;
-        opacity: 0.95;
-      }
-
-      .cta {
-        border: 1px solid currentColor;
-        border-radius: 14px;
-        padding: 1.2rem;
-        margin: 2rem 0 0;
-      }
-      .cta h2 {
-        margin-top: 0;
-      }
-
-      .hr {
-        height: 1px;
-        background: currentColor;
-        opacity: 0.35;
-        margin: 2rem 0;
-      }
-    </style>
-  </head>
-
-  <body>
-    <article class="blog-wrap">
-      <!-- HERO -->
-      <header class="hero">
-        <div>
-          <p class="badge">Hediyelik Rehberi</p>
-          <h1>Kıbrıs’tan Alınacak Hediyelik Eşyalar</h1>
-
-          <div class="hero__meta">
-            <span>Akdeniz • Kültür • Lezzet</span>
-            <span>Okuma: ~6 dk</span>
-            <span>Konum: Girne • Lefkoşa • Gazimağusa</span>
-          </div>
-
-          <p class="lead">
-            Akdeniz’in ortasında, tanıdık bir ada Kıbrıs. Sokaklarında dolaşırken bir yanda Osmanlı izlerine, diğer yanda
-            Antik Yunan ve Roma’dan kalan detaylara rastlamak mümkün. Yüzyıllar boyunca farklı medeniyetlere ev sahipliği
-            yapması, adanın kültürüne ve günlük yaşamına güçlü bir çeşitlilik katıyor.
-            <br /><br />
-            Güneşi, sakin temposu ve canlı gece hayatıyla hafızada yer eden bu yolculuk, dönüşe yaklaşırken tek bir soruyu
-            beraberinde getiriyor: <strong>Kıbrıs'ta hediyelik eşya ne alınır?</strong> Sizin için detaylı şekilde ele
-            aldık.
-          </p>
-        </div>
-
-        <img
-          class="hero__img"
-          src="https://api2.salamisbayconti.com/storage/carousels/January2026/2x6fd1m7cTS6KEn0ilFH.webp"
-          alt="Kıbrıs'tan alınacak hediyelik eşyalar kapak görseli"
-          loading="lazy"
-        />
-      </header>
-
-      <!-- TOC -->
-      <nav class="toc" aria-label="İçindekiler">
-        <h2>İçindekiler</h2>
-        <ol>
-          <li><a href="#kibris-ozgu">Kıbrıs’a Özgü Hediyelikler Nedir?</a></li>
-          <li><a href="#el-sanatlari">Kıbrıs’ın El Sanatları: Geleneksel ve Modern Birleşimi</a></li>
-          <li><a href="#hellim">Hellim Peyniri: Kıbrıs’ın Lezzetli Hediyesi</a></li>
-          <li><a href="#zeytinyagi">Kıbrıs Zeytinyağı ve Zeytin Ürünleri</a></li>
-          <li><a href="#takilar">Kıbrıs’a Ait Takılar ve El Yapımı Tasarımlar</a></li>
-          <li><a href="#igne-oyasi">Kıbrıs İğne Oyası ve Lefkara Nakışı</a></li>
-          <li><a href="#baharatlar">Kıbrıs’tan Alınacak Baharatlar ve Hazırlıklar</a></li>
-          <li><a href="#nereden-alinir">Nereden Alınır? Yerel Dükkanlar ve Pazarlar</a></li>
-          <li><a href="#hizli-rehber">Kıbrıs’tan Ne Almalıyım? En İyi Hediyelik Rehberi</a></li>
-        </ol>
-      </nav>
-
-      <!-- QUICK PICKS -->
-      <section class="section" id="kibris-ozgu">
-        <h2>Kıbrıs’a Özgü Hediyelikler Nedir?</h2>
-        <div class="split">
-          <div>
-            <p>
-              Kıbrıs hediyelik eşya arayışı sadece klasik magnetlerle sınırlı kalmıyor. Yerel el sanatları, adaya özgü
-              tatlar ve kültürel dokuyu yansıtan küçük ama anlamlı parçalar öne çıkıyor.
-            </p>
-
-            <div class="tip">
-              <strong>Mini ipucu</strong>
-              <p class="mini">
-                Hediyelik seçerken “uzun ömür + yerel hikâye” ikilisini hedefle: Evde kullanılabilen lezzetler, el emeği
-                tekstiller ve küçük dekoratif objeler en çok sevilen seçenekler.
-              </p>
-            </div>
-
-            <ul class="pill-list" aria-label="Öne çıkan kategoriler">
-              <li>El dokuması kilim</li>
-              <li>Zeybek halısı</li>
-              <li>Lefkara işleme</li>
-              <li>Seramik & çömlek</li>
-              <li>Hellim</li>
-              <li>Zeytinyağı & sabun</li>
-              <li>Baharat & ot karışımları</li>
-              <li>El yapımı takılar</li>
-            </ul>
-          </div>
-
-          <aside class="card">
-            <h3>Hızlı Karar: 3 Soru</h3>
-            <ol class="checklist">
-              <li><strong>Valize uygun mu?</strong> Kırılabilir mi, sıvı mı, kokulu mu?</li>
-              <li><strong>Hediye kime?</strong> Mutfak sever mi, dekor sever mi, takı takar mı?</li>
-              <li><strong>Yerel hikâye var mı?</strong> Üretici/atölye/teknik bilgisi hediyeyi değerli kılar.</li>
-            </ol>
-          </aside>
-        </div>
-
-        <img
-          class="img-inline"
-          src="https://api2.salamisbayconti.com/storage/carousels/January2026/2x6fd1m7cTS6KEn0ilFH.webp"
-          alt="Kıbrıs hediyelik temalı görsel"
-          loading="lazy"
-        />
-      </section>
-
-      <!-- HANDICRAFTS -->
-      <section class="section" id="el-sanatlari">
-        <h2>Kıbrıs’ın El Sanatları: Geleneksel ve Modern Birleşimi</h2>
-
-        <p>
-          Kıbrıs’ın el sanatları, adanın çok kültürlü yapısının zarif yansımalarından biri. Yüzyıllar boyunca aktarılan
-          gelenekler, bugün hâlâ günlük yaşamın ve hediyelik kültürünün önemli bir parçası olarak varlığını sürdürüyor.
-          Özellikle dokumacılık, Kıbrıs el sanatlarının temel taşları arasında yer alıyor.
-        </p>
-
-        <div class="grid grid--2">
-          <div class="card">
-            <h3>El Dokuması Kilimler</h3>
-            <p>
-              Gazimağusa ve çevre köylerde üretilen el dokuması kilimler, sınırlı motif kullanımı ve güçlü sembolik diliyle
-              dikkat çekiyor. Dekoratif olduğu kadar koleksiyon değeri taşıyan özgün eserler olarak öne çıkıyor.
-            </p>
-            <ul class="checklist">
-              <li>Motiflerin anlamını sor (hikâye hediyeyi büyütür)</li>
-              <li>Boyut/kalınlık valize uygun mu kontrol et</li>
-              <li>Bakım önerisini not al (havalandırma, yıkama vb.)</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Zeybek Halıları</h3>
-            <p>
-              İnce işçiliği ve estetik motifleriyle Zeybek halıları, adanın tarihsel hafızasını modern yaşam alanlarına
-              taşıyor. Ev hediyesi olarak “kalıcı” seçeneklerden.
-            </p>
-            <ul class="checklist">
-              <li>İplik/kalite bilgisi iste</li>
-              <li>Motif yoğunluğu ve dokuma sıklığını incele</li>
-              <li>Orijin/atölye bilgisi varsa yazdır</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="grid grid--2" style="margin-top: 1rem">
-          <div class="card">
-            <h3>Lefkara İşlemeli Ürünler</h3>
-            <p>
-              Daha küçük ama bir o kadar anlamlı alternatifler için Lefkara nakışıyla süslenen el işi havlular, örtüler ve
-              küçük tekstiller zarif bir seçim.
-            </p>
-            <ul class="pill-list">
-              <li>Havlu</li>
-              <li>Runner</li>
-              <li>Masa örtüsü</li>
-              <li>Yastık kılıfı</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Seramik: Geleneğin Modern Yorumu</h3>
-            <p>
-              Çömlekten vazoya, mumluktan kupaya kadar pek çok parça; adanın kültürel dokusunu sade ve şık formlarla
-              anlatıyor.
-            </p>
-            <ul class="checklist">
-              <li>Kırılabilir ürünlerde paketleme iste</li>
-              <li>Kupa/tabak gibi günlük kullanım ürünleri daha “işlevsel” olur</li>
-              <li>Üretici imzası/atölye etiketi varsa sakla</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <div class="hr"></div>
-
-      <!-- HALLOUMI -->
-      <section class="section" id="hellim">
-        <h2>Hellim Peyniri: Kıbrıs’ın Lezzetli Hediyesi</h2>
-        <p>
-          Kıbrıs’a özgü lezzetleri sevdiklerinize de tattırmanız mümkün. Kıbrıs mutfağının en meşhur lezzetlerinden biri
-          olan hellim peyniri, yarı sert yapısı ve kendine özgü dokusuyla öne çıkıyor. Yerel marketlerde ve şarküterilerde
-          taze üretim seçeneklerine rastlayabilir, havalimanında ise seyahate uygun şekilde vakumlu ambalajlarda
-          bulabilirsiniz.
-        </p>
-
-        <div class="tip">
-          <strong>Alırken dikkat</strong>
-          <ul class="checklist">
-            <li>Vakumlu paket + soğuk zincir (mümkünse) tercih et</li>
-            <li>Son tüketim tarihi ve saklama koşulunu kontrol et</li>
-            <li>Hediyeyi götüreceğin kişi “ızgara/mezeler” seviyorsa tam isabet</li>
-          </ul>
-        </div>
-
-        <img
-          class="img-inline"
-          src="https://api2.salamisbayconti.com/storage/carousels/January2026/2x6fd1m7cTS6KEn0ilFH.webp"
-          alt="Hellim peyniri temalı görsel"
-          loading="lazy"
-        />
-      </section>
-
-      <!-- OLIVE -->
-      <section class="section" id="zeytinyagi">
-        <h2>Kıbrıs Zeytinyağı ve Zeytin Ürünleri</h2>
-        <p>
-          Kıbrıs’ta yüzyıllar öncesine dayanan zeytin ağaçları adanın önemli değerlerinden. Adada üretilen zeytinyağı
-          aroması zengin, lezzetli bir tada sahip. Yemeklerde, salatalarda veya mezelerde kullanmak için sızma
-          zeytinyağlarının yanı sıra sabun, şampuan ve losyon gibi zeytinyağı bazlı kozmetik ürünler de bulabilirsiniz.
-        </p>
-
-        <div class="grid grid--3">
-          <div class="card">
-            <h3>Mutfak İçin</h3>
-            <ul class="checklist">
-              <li>Sızma zeytinyağı</li>
-              <li>Baharatlı zeytin çeşitleri</li>
-              <li>Aromalı yağ karışımları (bitki özlü)</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Kozmetik & Bakım</h3>
-            <ul class="checklist">
-              <li>Zeytinyağlı sabun</li>
-              <li>Losyon / krem</li>
-              <li>Hediye setleri (lavanta, narenciye vb.)</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Hediyeleme Kolaylığı</h3>
-            <ul class="checklist">
-              <li>Şık paketli setler “hazır hediye” olur</li>
-              <li>Kokular için alerji hassasiyeti sor</li>
-              <li>Sıvı ürünlerde bagaj kurallarını gözet</li>
-            </ul>
-          </div>
-        </div>
-
-        <img
-          class="img-inline"
-          src="https://api2.salamisbayconti.com/storage/carousels/January2026/2x6fd1m7cTS6KEn0ilFH.webp"
-          alt="Zeytinyağı ve sabun temalı görsel"
-          loading="lazy"
-        />
-      </section>
-
-      <!-- JEWELRY -->
-      <section class="section" id="takilar">
-        <h2>Kıbrıs’a Ait Takılar ve El Yapımı Takı Tasarımları</h2>
-        <p>
-          Kıbrıs’ta hediyelik eşya ne alınır diye düşünenlere doğal ve değerli taşlarla hazırlanan el yapımı takılar güçlü
-          bir alternatif sunuyor. Kuzey Kıbrıs’ın turistik bölgelerinde ametist, turkuaz, oniks ve mermer gibi taşlardan
-          üretilmiş kolyeler, bileklikler ve dekoratif aksesuarları kolayca bulabilirsiniz.
-        </p>
-
-        <div class="grid grid--2">
-          <div class="card">
-            <h3>Öne Çıkan Motifler</h3>
-            <ul class="checklist">
-              <li>Telkari küpeler</li>
-              <li>Bizans haçı detayları</li>
-              <li>Nar, zeytin dalı, nazar boncuğu figürleri</li>
-              <li>Akdeniz temalı sade/modern çizgiler</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Hediye Seçim Tüyosu</h3>
-            <ul class="checklist">
-              <li>Günlük kullanım için minimal parçalar daha risksiz</li>
-              <li>Taşın bakımı/kararmaya karşı öneri iste</li>
-              <li>El emeği/yerel zanaatkâr bilgisini not et</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <div class="hr"></div>
-
-      <!-- LACE -->
-      <section class="section" id="igne-oyasi">
-        <h2>Kıbrıs İğne Oyası: Gelenekten Geleceğe</h2>
-        <p>
-          Kıbrıs’ın tekstil geleneği, el dokuması atkılardan işlemeli yastık kılıflarına kadar uzanan zengin bir mirasa
-          sahip. Bu kültürün en özel örneklerinden biri olan <strong>Lefkara nakışı</strong>, Venedikliler Dönemi’nden
-          günümüze ulaşan ince bir iğne oyası tekniği olarak öne çıkıyor. Rivayete göre Leonardo Da Vinci’nin de ilham
-          aldığı bu zarif işçilik, bugün modern tasarımlarla yaşatılmaya devam ediyor.
-        </p>
-
-        <div class="tip">
-          <strong>Kimlere hediye edilir?</strong>
-          <p class="mini">
-            El emeğine değer verenler, ev tekstilini sevenler, “hatıra + zarafet” arayanlar için çok uygun. Küçük parça
-            seçenekleri (mendil, küçük örtü, runner) taşımayı kolaylaştırır.
-          </p>
-        </div>
-      </section>
-
-      <!-- SPICES -->
-      <section class="section" id="baharatlar">
-        <h2>Kıbrıs’tan Alınacak Baharatlar ve Yemek Hazırlıkları</h2>
-        <p>
-          Kıbrıs mutfağının lezzetini belirleyen en önemli unsurlardan biri adaya özgü aromatik otlar ve baharatlar.
-          Güneşli iklim sayesinde yetişen kekik, biberiye, mercanköşk, nane gibi otlar; mezelerden et yemeklerine kadar
-          birçok tarifte karakteri belirliyor.
-        </p>
-
-        <div class="grid grid--2">
-          <div class="card">
-            <h3>Popüler Seçenekler</h3>
-            <ul class="checklist">
-              <li>Kurutulmuş kekik</li>
-              <li>Biberiye</li>
-              <li>Mercanköşk</li>
-              <li>Nane</li>
-              <li>Karışım baharatlar</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Hediyeleme İpucu</h3>
-            <ul class="checklist">
-              <li>Cam kavanoz/zipli ambalaj tercih et</li>
-              <li>Etiketli ürünler (içerik bilgisi) daha iyi olur</li>
-              <li>Yanına küçük tarif notu eklersen hediyen “özel”leşir</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- WHERE TO BUY -->
-      <section class="section" id="nereden-alinir">
-        <h2>Kıbrıs’ta Bulabileceğiniz Hediyelikler: Yerel Dükkanlar ve Pazarlar</h2>
-        <p>
-          Yerel yaşamı yakından tanımak ve gezerken alışveriş yapmak isteyenler için Kuzey Kıbrıs keyifli rotalar sunuyor.
-          Özellikle <strong>Girne</strong>, tarih ve lezzeti bir araya getiren alışveriş duraklarıyla öne çıkıyor.
-        </p>
-
-        <div class="grid grid--2">
-          <div class="card">
-            <h3>Girne Panoramik Turu + Alışveriş</h3>
-            <p>
-              Girne Kalesi ve Eski Liman çevresinde başlayan tur; Venedik ve Osmanlı izleri taşıyan sokaklarda devam eder.
-              Rehber eşliğinde yapılan gezinin ardından el yapımı takılar, seramikler ve Lefkara işi ürünler sunan
-              dükkânlarda serbest zaman iyi gider.
-            </p>
-            <ul class="checklist">
-              <li>Hedef hediye: Takı / seramik / küçük tekstil</li>
-              <li>En iyi an: Liman çevresinde gün batımı sonrası</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Lefkoşa Surlariçi Yürüyüş</h3>
-            <p>
-              Büyük Han, Selimiye Camii ve Arasta bölgesini kapsayan yürüyüşte şehrin çok katmanlı kültürünü hissedersiniz.
-              Molalarda hellim ve geleneksel tatlar deneyebilir; sabun, baharat, tekstil ürünleri ve zeytinyağlılar
-              alabileceğiniz dükkânlara uğrayabilirsiniz.
-            </p>
-            <ul class="checklist">
-              <li>Hedef hediye: Hellim / baharat / sabun seti</li>
-              <li>En iyi an: Sabah erken saatler (daha sakindir)</li>
-            </ul>
-          </div>
-        </div>
-
-        <img
-          class="img-inline"
-          src="https://api2.salamisbayconti.com/storage/carousels/January2026/2x6fd1m7cTS6KEn0ilFH.webp"
-          alt="Yerel pazar ve nazar temalı görsel"
-          loading="lazy"
-        />
-      </section>
-
-      <!-- BEST GUIDE (TABLE) -->
-      <section class="section" id="hizli-rehber">
-        <h2>Kıbrıs’tan Ne Almalıyım? En İyi Hediyelik Rehberi</h2>
-        <p>
-          Kıbrıs hediyelik eşya ne alınır diye düşünüyorsanız, adaya özgü lezzet ve el emeği ürünler iyi bir başlangıç
-          sunuyor. Zeytinyağı bazlı bakım ürünleri, seyahate uygun paketlenen hellim peyniri, Lefkara dantel işlemeleri ile
-          lokum ve keçiboynuzu şurubu gibi seçenekler; adanın doğal yapısını ve köklü kültürünü sade bir şekilde yansıtıyor.
-        </p>
-
-        <div class="table-wrap" role="region" aria-label="Hediyelik tablo" tabindex="0">
-          <table>
-            <thead>
-              <tr>
-                <th>Kategori</th>
-                <th>Ne Alınır?</th>
-                <th>Kime Uygun?</th>
-                <th>Taşıma/Püf Nokta</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>El Sanatları</strong></td>
-                <td>Kilim, Zeybek halısı, seramik kupa/vazo</td>
-                <td>Ev/dekor sevenler, koleksiyon meraklıları</td>
-                <td>Kırılabilir ürünlerde sağlam paket; kilimde boyut kontrol</td>
-              </tr>
-              <tr>
-                <td><strong>Tekstil</strong></td>
-                <td>Lefkara işlemeli havlu, runner, küçük örtü</td>
-                <td>El emeği sevenler, “zarif hediye” arayanlar</td>
-                <td>Küçük parça seçmek valizde kolaylık sağlar</td>
-              </tr>
-              <tr>
-                <td><strong>Lezzet</strong></td>
-                <td>Hellim, lokum, keçiboynuzu şurubu</td>
-                <td>Gurme dostlar, aile ziyaretleri</td>
-                <td>Vakumlu ürünler + son tüketim tarihi kontrol</td>
-              </tr>
-              <tr>
-                <td><strong>Zeytin & Bakım</strong></td>
-                <td>Sızma zeytinyağı, zeytinyağlı sabun, hediye seti</td>
-                <td>Mutfak severler, bakım ürünlerini sevenler</td>
-                <td>Sıvılarda bagaj kurallarına dikkat; koku hassasiyeti sor</td>
-              </tr>
-              <tr>
-                <td><strong>Takı</strong></td>
-                <td>Doğal taşlı bileklik/kolye, telkari</td>
-                <td>Minimal takı sevenler, anlamlı sembol sevenler</td>
-                <td>Günlük kullanım için sade parçalar daha risksiz</td>
-              </tr>
-              <tr>
-                <td><strong>Baharat</strong></td>
-                <td>Kekik, biberiye, mercanköşk, karışımlar</td>
-                <td>Mutfakta zaman geçirmeyi sevenler</td>
-                <td>Kavanoz/zipli paket + etiketli içerik</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="tip">
-          <strong>Hediye “tam isabet” olsun</strong>
-          <ul class="checklist">
-            <li>Yanına kısa bir not ekle: “Girne Limanı’nda küçük bir dükkândan aldım…”</li>
-            <li>Lezzet hediyesi veriyorsan kullanım önerisi yaz: “ızgarada 2 dk” gibi</li>
-            <li>El emeğinde üreticiyi belirt: “Lefkara işi / yerel zanaatkâr”</li>
-          </ul>
-        </div>
-
-        <p>
-          Girne’nin eski liman çevresinde dolaşırken, yerel pazarlarda tezgâhları gezerken ya da mezelerle geçen keyifli bir
-          öğle yemeğinden sonra sahil kenarındaki küçük dükkânlara uğradığınızda karşınıza pek çok özgün seçenek çıkıyor.
-          Kıbrıs’tan dönerken yanınıza alacağınız küçük bir parça, bu yolculuğun hissini uzun süre canlı tutuyor.
-        </p>
-      </section>
-
-      <!-- HOTEL CTA -->
-      <section class="cta" aria-label="Salamis Bay Conti notu">
-        <h2>Gazimağusa’da Konaklama + Alışveriş Rotası</h2>
-        <p>
-          Kıbrıs; antik kalıntıların modern bulvarlarla buluştuğu, rengarenk pazarların ve el sanatları butiklerinin olduğu
-          bir Akdeniz adası. Turistik şehirlerden biri olan Gazimağusa, adanın tarihini, lezzetlerini ve geleneklerini
-          yansıtan yerleri gezmek için iyi bir başlangıç noktası.
-        </p>
-        <p>
-          Salamis Kumsalı’nın hemen kıyısında, denize sıfır konumda yer alan <strong>Salamis Bay Conti Resort Hotel</strong>;
-          Gazimağusa merkeze 8 km, Ercan Havalimanı’na 45 km mesafesiyle hem keşif hem dinlenme dengesini kurmanıza yardımcı
-          olur. Alışverişle geçen günlerin ardından rahat bir mola verip tatilinizi keyifle tamamlayabilirsiniz.
-        </p>
-      </section>
-
-      <img
-        class="img-inline"
-        src="https://api2.salamisbayconti.com/storage/carousels/January2026/2x6fd1m7cTS6KEn0ilFH.webp"
-        alt="Salamis Bay Conti temalı görsel"
-        loading="lazy"
-      />
-    </article>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Kıbrıs’a Özgü Hediyelik Eşyalar</title>
+  <meta name="description" content="Kıbrıs’tan alınabilecek hediyelik eşyaları keşfedin. Yerel ürünler, el yapımı hediyeler ve sevdiklerinize özel alternatifler bu rehberde!" />
+</head>
+
+<body>
+
+  <header>
+    <h1>Kıbrıs'tan Alınacak Hediyelik Eşyalar</h1>
+
+    <figure>
+      <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/UzRt0qBpKTqiulsxlSa3.jpg" alt="Kıbrıs el işi dokuma hediyelikler">
+      <figcaption>Hediyelikler; yolculuğun kokusunu, dokusunu ve anılarını eve taşır.</figcaption>
+    </figure>
+
+    <p>
+      Akdeniz’in ortasında, tanıdık bir ada Kıbrıs. Sokaklarında dolaşırken bir yanda Osmanlı izlerine, diğer yanda Antik Yunan ve Roma’dan kalan
+      detaylara rastlamak mümkün. Yüzyıllar boyunca farklı medeniyetlere ev sahipliği yapması, adanın kültürüne ve günlük yaşamına güçlü bir çeşitlilik
+      katıyor. Güneşi, sakin temposu ve canlı gece hayatıyla hafızada yer eden bu yolculuk, dönüşe yaklaşırken tek bir soruyu beraberinde getiriyor:
+      <strong>Kıbrıs'ta hediyelik eşya ne alınır?</strong> Sizin için detaylı şekilde ele aldık.
+    </p>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Kıbrıs’a Özgü Hediyelikler Nedir?</h2>
+
+      <figure>
+        <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/4WOkJnnCpjpQQHE257LX.JPG" alt="Kıbrıs el emeği hediyelikler ve yerel zanaat">
+        <figcaption>Yerel el emeği ürünler, Kıbrıs’ın kültürel hafızasını küçük ama anlamlı parçalarla taşır.</figcaption>
+      </figure>
+
+      <p>
+        Kıbrıs hediyelik eşya arayışı sadece klasik magnetlerle sınırlı kalmıyor.
+        Yerel el sanatları, adaya özgü tatlar ve kültürel dokuyu yansıtan küçük ama anlamlı parçalar öne çıkıyor.
+      </p>
+
+      <h3>Kıbrıs’ın El Sanatları: Geleneksel ve Modern Birleşimi</h3>
+      <p>
+        Kıbrıs’ın el sanatları, adanın çok kültürlü yapısının zarif yansımalarından biri. Yüzyıllar boyunca aktarılan gelenekler,
+        bugün hâlâ günlük yaşamın ve hediyelik kültürünün önemli bir parçası olarak varlığını sürdürüyor.
+        Özellikle dokumacılık, Kıbrıs el sanatlarının temel taşları arasında yer alıyor.
+        Gazimağusa ve çevre köylerde üretilen el dokuması kilimler, sınırlı motif kullanımı ve güçlü sembolik diliyle dikkat çekiyor.
+        Her biri emek ve zaman isteyen bu parçalar sadece dekoratif değil; koleksiyon değeri taşıyan özgün eserler olarak öne çıkıyor.
+      </p>
+
+      <p>
+        Kilimlerin yanı sıra Zeybek halıları da Kıbrıs’ın en bilinen el işi ürünlerinden. İnce işçiliği ve estetik motifleriyle bu halılar,
+        adanın tarihsel hafızasını modern yaşam alanlarına taşıyor. Daha küçük ama bir o kadar anlamlı alternatifler arayanlar için
+        Lefkara nakışıyla süslenen el işi havlular iyi bir seçenek. Zarif detaylarıyla öne çıkan bu ürünler, el emeğinin inceliğini yansıtıyor.
+      </p>
+
+      <p>
+        Seramik ise Kıbrıs’ta geleneğin modern yorumla buluştuğu alanlardan biri. Çömlekten vazoya, mumluktan kupaya kadar pek çok parça,
+        adanın kültürel dokusunu sade ve şık formlarla anlatıyor. Kıbrıs’ın el sanatları, geçmişle bugünü doğal bir dengede bir araya getiriyor.
+      </p>
+    </section>
+
+    <section>
+      <h2>Hellim Peyniri: Kıbrıs’ın Lezzetli Hediyesi</h2>
+
+      <figure>
+        <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/QxpFR5V0f7RGjHzvPMec.jpg" alt="Hellim peyniri - Kıbrıs hediyelik lezzetleri">
+        <figcaption>Hellim; Kıbrıs mutfağının en bilinen lezzetlerinden ve seyahate en uygun hediyeliklerden biri.</figcaption>
+      </figure>
+
+      <p>
+        Kıbrıs’a özgü lezzetleri sevdiklerinize de tattırmanız mümkün. Kıbrıs mutfağının en meşhur lezzetlerinden biri olan hellim peyniri,
+        yarı sert yapısı ve kendine özgü dokusuyla öne çıkıyor. Kıbrıs’ta özellikle yerel marketlerde ve şarküterilerde taze üretim seçeneklerine
+        rastlamak mümkün. Ayrıca havalimanında seyahate uygun şekilde vakumlu ambalajlarda sunuluyor.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kıbrıs Zeytinyağı ve Zeytin Ürünleri</h2>
+
+      <figure>
+        <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/38amjkQGGB6Ne9onJPsG.jpg" alt="Kıbrıs zeytinyağı ve zeytin bazlı bakım ürünleri">
+        <figcaption>Zeytinyağı ve zeytinyağı bazlı ürünler, Kıbrıs’tan alınabilecek en zamansız hediyelikler arasında.</figcaption>
+      </figure>
+
+      <p>
+        Kıbrıs’ta bir diğer önemli şey ise yüzyıllar öncesine dayanan zeytin ağaçları. Adada üretilen zeytinyağı aroması zengin,
+        lezzetli bir tada sahip. Yemeklerde, salatalarda veya mezelerde kullanmak için sızma zeytinyağlarının yanı sıra sabun, şampuan ve losyon gibi
+        zeytinyağı bazlı kozmetik ürünler de bulabilirsiniz.
+      </p>
+
+      <p>
+        Birçok yerel mağaza da ayrıca lavanta, narenciye veya bitki özleriyle zenginleştirilmiş, güzelce paketlenmiş hediye setleri sunuyor.
+        Bu seçenekleri hem mutfak kültürüne hem de kişisel bakımına önem veren sevdikleriniz için anlamlı birer Kıbrıs hatırası olarak değerlendirebilirsiniz.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kıbrıs’a Ait Takılar ve El Yapımı Takı Tasarımları</h2>
+      <p>
+        Kıbrıs’ta hediyelik eşya ne alınır diye düşünenlere doğal ve değerli taşlarla hazırlanan el yapımı takılar güçlü bir alternatif sunuyor.
+        Kuzey Kıbrıs’ın turistik bölgelerinde yer alan dükkânlarda, ametist, turkuaz, oniks ve mermer gibi taşlardan üretilmiş kolyeler,
+        bileklikler ve dekoratif aksesuarları kolayca bulabilirsiniz.
+      </p>
+      <p>
+        Bu takıları özel kılan kullanılan taşların yanı sıra taşıdıkları anlam ve işçilik. Klasik Akdeniz motifleri, modern ve sade tasarımlarla birleşerek
+        zamansız parçalar ortaya çıkarıyor. Telkari küpeler, Bizans haçı detayları, nar, zeytin dalı ve nazar boncuğu figürleri Kıbrıs’a özgü semboller arasında öne çıkıyor.
+        Çoğu ürün yerel zanaatkârların elinden çıktığı için özellikle el emeğine değer verenlere uygun.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kıbrıs İğne Oyası: Gelenekten Geleceğe</h2>
+      <p>
+        Kıbrıs’ın tekstil geleneği, el dokuması atkılardan işlemeli yastık kılıflarına kadar uzanan zengin bir mirasa sahip.
+        Bu kültürün en özel örneklerinden biri olan Lefkara nakışı, Venedikliler Dönemi’nden günümüze ulaşan ince bir iğne oyası tekniği olarak öne çıkıyor.
+        Rivayete göre Leonardo Da Vinci’nin de ilham aldığı bu zarif işçilik, bugün modern tasarımlarla yaşatılmaya devam ediyor.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kıbrıs’tan Alınacak Baharatlar ve Yemek Hazırlıkları</h2>
+      <p>
+        Kıbrıs mutfağının lezzetini belirleyen en önemli unsurlardan biri adaya özgü aromatik otlar ve baharatlar.
+        Güneşli iklim sayesinde yetişen kekik, biberiye, mercanköşk ve nane, yerel yemeklerde ve mezelerde belirleyici oluyor.
+        Kıbrıs’a özgü hediyelik eşyalar arasında yer alan bu kurutulmuş otlar ve baharat karışımları,
+        adanın lezzet hafızasını evde yaşatmak isteyenlere uygun bir seçenek.
+        Özellikle yeni tatlar denemeyi ve mutfakta zaman geçirmeyi sevenler için anlamlı bir hediye olarak öne çıkıyor.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kıbrıs’ta Bulabileceğiniz Hediyelikler: Yerel Dükkanlar ve Pazarlar</h2>
+
+      <figure>
+        <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/4dRJT0yGccuwk5irwNiF.jpg" alt="Kıbrıs yerel pazar hediyelikleri ve nazar boncuğu">
+        <figcaption>Yerel pazarlar; el işi ürünler, baharatlar ve küçük ama özel hediyeliklerle dolu.</figcaption>
+      </figure>
+
+      <p>
+        Yerel yaşamı yakından tanımak ve gezerken alışveriş yapmak isteyenler için Kuzey Kıbrıs keyifli rotalar sunuyor.
+        Özellikle Kıbrıs Girne hediyelik eşya, geziler, tarih ve lezzeti bir araya getiriyor.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Girne Panoramik Turu ve Alışveriş Gezisi:</strong>
+          Girne Kalesi ve Eski Liman çevresinde başlayan tur, Venedik ve Osmanlı izleri taşıyan sokaklarda devam ediyor.
+          Rehber eşliğinde yapılan gezinin ardından, el yapımı takılar, seramikler ve Lefkara işi ürünler sunan yerel dükkânlarda serbest zaman veriliyor.
+        </li>
+        <li>
+          <strong>Lefkoşa Surlariçi Yürüyüş Turu:</strong>
+          Büyük Han, Selimiye Camii ve Arasta bölgesini kapsayan yürüyüşte, şehrin çok katmanlı kültürü yakından hissediliyor.
+          Molalarda hellim, şeftali kebabı ve geleneksel tatlar deneyebilir; sabun, baharat, tekstil ürünleri ve zeytinyağlılar alabileceğiniz
+          Kıbrıs hediyelik eşya mağazaları arasında gezebilirsiniz.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Kıbrıs’tan Ne Almalıyım? En İyi Hediyelik Rehberi</h2>
+      <p>
+        Kıbrıs hediyelik eşya ne alınır diye düşünüyorsanız, adaya özgü lezzet ve el emeği ürünler iyi bir başlangıç sunuyor.
+        Hediyelik eşya Kıbrıs denildiğinde zeytinyağı bazlı bakım ürünleri, seyahate uygun paketlenen hellim peyniri,
+        Lefkara dantel işlemeleri ile lokum ve keçiboynuzu şurubu öne çıkıyor.
+        Bu ürünler, adanın doğal yapısını ve köklü kültürünü sade bir şekilde yansıtıyor.
+      </p>
+
+      <p>
+        Girne’nin eski liman çevresinde dolaşırken, yerel pazarlarda tezgâhları gezerken ya da mezelerle geçen keyifli bir öğle yemeğinden sonra
+        sahil kenarındaki küçük dükkânlara uğradığınızda karşınıza pek çok özgün seçenek çıkıyor.
+        Kıbrıs’tan dönerken yanınıza alacağınız küçük bir parça, bu yolculuğun hissini uzun süre canlı tutuyor.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kıbrıs’a özgü hediyeliklerle sevdiklerine unutulmaz bir hatıra bırak, Salamis Bay Conti ile alışverişin keyfini çıkar!</h2>
+
+      <p>
+        Kıbrıs antik kalıntıların modern bulvarlarla buluştuğu, rengarenk pazarların ve el sanatları butiklerinin bulunduğu bir Akdeniz adası.
+        Adanın turistik şehirlerinden biri olan Gazimağusa, adanın tarihini, lezzetlerini ve geleneklerini yansıtan yerleri gezmek için uygun bir başlangıç noktası.
+        Gazimağusa’da konaklarken, Lefkoşa ve Girne gibi turistik şehirlere günübirlik geziler düzenleyebilir; yerel dükkânlarda Kıbrıs’a özgü hediyelikler seçerek
+        seyahatinizi anlamlı hatıralarla tamamlayabilirsiniz.
+      </p>
+
+      <p>
+        Salamis Kumsalı’nın hemen kıyısında, denize sıfır konumda yer alan Salamis Bay Conti Resort Hotel,
+        Gazimağusa merkeze 8 km, Ercan Havalimanına 45 km mesafesiyle hem keşif hem dinlenme dengesini kurmanızı sağlıyor.
+        Geniş ve ince kumlu plajında Akdeniz’in tadını çıkarırken, konforlu konaklama ayrıcalığıyla tatilinizi keyifle tamamlayabilirsiniz.
+      </p>
+
+      <p>
+        Kıbrıs’ta hediyelik eşya seçerek sevdiklerinize unutulmaz anılar bırakmak ve alışverişle geçen günlerin ardından rahat bir mola verebilirsiniz.
+        Kıbrıs otelleri arasında konumu ve sunduğu olanaklarla öne çıkan Salamis Bay Conti Resort Hotel,
+        hem alışveriş hem de tatil yapmak isteyenlere uygun seçenek sunuyor.
+      </p>
+    </section>
+
+  </main>
+
+</body>
 </html>
