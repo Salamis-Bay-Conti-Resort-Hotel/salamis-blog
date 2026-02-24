@@ -22,5 +22,16 @@
       "slug": "souvenirs-to-buy-in-cyprus",
       "title": "What Souvenirs to Buy in Cyprus? A Local’s Shopping Guide"
     }
+  },
+  {
+    "id": "northern-cyprus-travel-guide",
+    "tr": {
+      "slug": "kuzey-kibrisa-nasil-gidilir",
+      "title": "Kuzey Kıbrıs Yolculuk Rehberi: Nasıl ve Ne Zaman Gidilir?"
+    },
+    "en": {
+      "slug": "how-to-get-to-northern-cyprus",
+      "title": "How to Get to Northern Cyprus? Flights, Ferries & Crossings"
+    }
   }
 ]
