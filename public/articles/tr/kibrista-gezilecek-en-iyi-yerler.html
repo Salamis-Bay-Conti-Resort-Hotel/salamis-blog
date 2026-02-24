@@ -6,215 +6,32 @@
 
   <title>Kıbrıs Gezilecek Yerler Rehberi: Doğa, Tarih ve Kültür</title>
   <meta name="description" content="Kıbrıs’ta gezilecek yerler arasında öne çıkan noktaları keşfedin. Tatilinizi planlamadan önce mutlaka görmeniz gereken yerleri hemen inceleyin!" />
-
-  <style>
-    :root{
-      --glass: rgba(255,255,255,0.20); /* beyaz bg opacity 20 */
-      --shadow: 0 10px 30px rgba(0,0,0,0.25);
-      --radius: 16px;
-    }
-
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:#fff;
-      line-height:1.65;
-      background:#05070b;
-    }
-
-    main{
-      max-width: 1536px;
-      margin: 0 auto;
-      padding: 36px 20px 80px;
-    }
-
-    header{
-      max-width: 1536px;
-      margin: 0 auto;
-    }
-
-    .page-title{
-      background: var(--glass);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px 18px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-    }
-
-    h1{
-      margin:0 0 10px;
-      font-size: 2.2rem;
-      line-height:1.15;
-      letter-spacing:-0.01em;
-    }
-
-    h2{
-      margin: 0 0 12px;
-      font-size: 1.35rem;
-      letter-spacing:-0.01em;
-    }
-
-    h3{
-      margin: 18px 0 8px;
-      font-size: 1.1rem;
-    }
-
-    p{ margin: 10px 0; max-width: 980px; }
-
-    .muted{ opacity:0.92; }
-
-    section{
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-    }
-
-    /* ===== IMAGE BLOCK ===== */
-    figure.media{
-      margin: 0 0 14px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.20); /* %20 beyaz */
-    }
-    figure.media img{
-      display:block;
-      width:100%;
-      height: auto;
-      max-height: 520px;
-      object-fit: cover;
-    }
-    figure.media figcaption{
-      padding: 10px 12px;
-      font-size: 0.95rem;
-      opacity: 0.92;
-      border-top: 1px solid var(--line);
-    }
-
-    /* ===== GRID LIST ===== */
-    .list-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 8px 24px;
-      margin: 16px 0 8px;
-      padding:0;
-      list-style:none;
-    }
-    .list-grid li{
-      position:relative;
-      padding-left:18px;
-    }
-    .list-grid li::before{
-      content:"•";
-      position:absolute;
-      left:0;
-      opacity:0.75;
-    }
-
-    /* ===== CALLOUT ===== */
-    .callout{
-      margin-top: 14px;
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.20); /* %20 beyaz */
-    }
-
-    /* ===== TABLE ===== */
-    .table-wrapper{
-      width:100%;
-      overflow-x:auto;
-      margin: 14px 0 4px;
-      padding: 10px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.20); /* %20 beyaz */
-    }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      min-width: 820px;
-    }
-    th, td{
-      padding: 12px 14px;
-      text-align:left;
-      vertical-align:top;
-      border-bottom:1px solid var(--line);
-    }
-    th{
-      font-weight:650;
-      border-bottom:1px solid var(--line-strong);
-      white-space:nowrap;
-    }
-
-    /* ===== ROUTES ===== */
-    .route-grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .route-card{
-      grid-column: span 4;
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.20); /* %20 beyaz */
-    }
-    .route-card h4{
-      margin:0 0 6px;
-      font-size:1.02rem;
-    }
-    .route-card p{
-      margin:0;
-      opacity:0.92;
-      font-size:0.98rem;
-    }
-
-    @media (max-width: 980px){
-      .route-card{ grid-column: span 6; }
-      main{
-      max-width: 1536px;
-      margin: 0 auto;
-      padding: 36px 5px 10px;
-    }
-      table{ min-width: 700px; }
-    }
-    @media (max-width: 680px){
-      h1{ font-size: 1.75rem; }
-      .route-card{ grid-column: span 12; }
-      figure.media img{ max-height: 420px; }
-    }
-  </style>
 </head>
 
 <body>
 
   <header>
-    <div class="page-title">
-      <h1>Kıbrıs’ta Gezilecek En İyi Yerler</h1>
-      <p>
-        Akdeniz’in ortasında, temposu daha sakin akan bir ada… Kıbrıs; tarihi mirası, doğal manzaraları, canlı gece hayatı ve
-        farklı konseptlerdeki Kıbrıs otelleri ile çok yönlü bir tatil deneyimi sunuyor. Yılın büyük bölümünde ılıman iklime sahip
-        olduğu için tatil planınızı istediğiniz zaman yapabilirsiniz. İlkbahar ve sonbahar ayları ne bunaltıcı sıcak ne de
-        kalabalık olmasıyla öne çıkıyor. Özellikle mayıs ayında denize girilebilir olması, Kıbrıs gezisini daha da keyifli hâle getiriyor.
-      </p>
-    </div>
+    <h1>Kıbrıs’ta Gezilecek En İyi Yerler</h1>
+    <p>
+      Akdeniz’in ortasında, temposu daha sakin akan bir ada… Kıbrıs; tarihi mirası, doğal manzaraları, canlı gece hayatı ve
+      farklı konseptlerdeki Kıbrıs otelleri ile çok yönlü bir tatil deneyimi sunuyor. Yılın büyük bölümünde ılıman iklime sahip
+      olduğu için tatil planınızı istediğiniz zaman yapabilirsiniz. İlkbahar ve sonbahar ayları ne bunaltıcı sıcak ne de
+      kalabalık olmasıyla öne çıkıyor. Özellikle mayıs ayında denize girilebilir olması, Kıbrıs gezisini daha da keyifli hâle getiriyor.
+    </p>
   </header>
 
   <main>
 
-    <!-- 1) Envato: Kyrenia harbour -> Image 1 -->
     <section>
-      <figure class="media">
+      <figure>
         <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/aYmjaNA7VuQ1yCe8Kgpl.jpg" alt="Girne Limanı ve çevresi - Kıbrıs">
         <figcaption>Girne ve çevresi; tarih, liman atmosferi ve Akdeniz ritmini aynı karede buluşturur.</figcaption>
       </figure>
 
       <h2>Kıbrıs gezilecek yerler arasında öne çıkan başlıca destinasyonlar</h2>
-      <p class="muted">Kıbrıs gezilecek yerler arasında öne çıkan başlıca destinasyonlar şunlardır:</p>
+      <p>Kıbrıs gezilecek yerler arasında öne çıkan başlıca destinasyonlar şunlardır:</p>
 
-      <ul class="list-grid">
+      <ul>
         <li>Girne Kalesi</li>
         <li>Bellapais Manastırı</li>
         <li>Salamis Antik Kenti</li>
@@ -227,80 +44,77 @@
         <li>Maraş Mahallesi</li>
       </ul>
 
-      <p class="muted">
+      <p>
         Bu rotalar, adanın geçmişten günümüze uzanan hikâyesini yakından hissetmek isteyenlere uygun duraklar sunar.
         Geziyi zamana ve bölgelere yaymak adına Kıbrıs gezilecek yerler haritası oluşturabilirsiniz.
       </p>
 
-      <div class="table-wrapper" role="region" aria-label="Kıbrıs destinasyonları özeti">
-        <table>
-          <thead>
-            <tr>
-              <th>Destinasyon</th>
-              <th>Bölge</th>
-              <th>Tür</th>
-              <th>Öne Çıkan Özellik</th>
-              <th>Kimler İçin Uygun?</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Girne Kalesi</td>
-              <td>Girne</td>
-              <td>Tarihi yapı</td>
-              <td>Liman manzarası, müze alanları</td>
-              <td>Kültür-tarih, fotoğraf severler</td>
-            </tr>
-            <tr>
-              <td>Bellapais Manastırı</td>
-              <td>Girne</td>
-              <td>Gotik mimari</td>
-              <td>Panoramik manzara, taş avlu</td>
-              <td>Mimari merakı olanlar, gün batımı izlemek isteyenler</td>
-            </tr>
-            <tr>
-              <td>Salamis Antik Kenti</td>
-              <td>Gazimağusa</td>
-              <td>Antik kent</td>
-              <td>Tiyatro, gymnasium, bazilikalar</td>
-              <td>Tarih severler, yürüyüş sevenler</td>
-            </tr>
-            <tr>
-              <td>Othello Kalesi</td>
-              <td>Gazimağusa</td>
-              <td>Kale</td>
-              <td>Surlar, denize yakın konum</td>
-              <td>Şehir içi keşif, kısa rotalar</td>
-            </tr>
-            <tr>
-              <td>St. Hilarion Kalesi</td>
-              <td>Girne</td>
-              <td>Kale / manzara noktası</td>
-              <td>~700m yükseklik, panoramik manzara</td>
-              <td>Doğa + tarih birlikte isteyenler</td>
-            </tr>
-            <tr>
-              <td>Altınkum Plajı</td>
-              <td>Karpaz (Dipkarpaz)</td>
-              <td>Plaj</td>
-              <td>Altın rengi kumlar, sakin atmosfer</td>
-              <td>Deniz, huzur, doğa kaçamağı</td>
-            </tr>
-            <tr>
-              <td>Büyük Han</td>
-              <td>Lefkoşa</td>
-              <td>Kültür / çarşı</td>
-              <td>Avlu, kafeler, el işi dükkânları</td>
-              <td>Şehir kültürü, alışveriş, kahve molası</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table aria-label="Kıbrıs destinasyonları özeti">
+        <thead>
+          <tr>
+            <th>Destinasyon</th>
+            <th>Bölge</th>
+            <th>Tür</th>
+            <th>Öne Çıkan Özellik</th>
+            <th>Kimler İçin Uygun?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Girne Kalesi</td>
+            <td>Girne</td>
+            <td>Tarihi yapı</td>
+            <td>Liman manzarası, müze alanları</td>
+            <td>Kültür-tarih, fotoğraf severler</td>
+          </tr>
+          <tr>
+            <td>Bellapais Manastırı</td>
+            <td>Girne</td>
+            <td>Gotik mimari</td>
+            <td>Panoramik manzara, taş avlu</td>
+            <td>Mimari merakı olanlar, gün batımı izlemek isteyenler</td>
+          </tr>
+          <tr>
+            <td>Salamis Antik Kenti</td>
+            <td>Gazimağusa</td>
+            <td>Antik kent</td>
+            <td>Tiyatro, gymnasium, bazilikalar</td>
+            <td>Tarih severler, yürüyüş sevenler</td>
+          </tr>
+          <tr>
+            <td>Othello Kalesi</td>
+            <td>Gazimağusa</td>
+            <td>Kale</td>
+            <td>Surlar, denize yakın konum</td>
+            <td>Şehir içi keşif, kısa rotalar</td>
+          </tr>
+          <tr>
+            <td>St. Hilarion Kalesi</td>
+            <td>Girne</td>
+            <td>Kale / manzara noktası</td>
+            <td>~700m yükseklik, panoramik manzara</td>
+            <td>Doğa + tarih birlikte isteyenler</td>
+          </tr>
+          <tr>
+            <td>Altınkum Plajı</td>
+            <td>Karpaz (Dipkarpaz)</td>
+            <td>Plaj</td>
+            <td>Altın rengi kumlar, sakin atmosfer</td>
+            <td>Deniz, huzur, doğa kaçamağı</td>
+          </tr>
+          <tr>
+            <td>Büyük Han</td>
+            <td>Lefkoşa</td>
+            <td>Kültür / çarşı</td>
+            <td>Avlu, kafeler, el işi dükkânları</td>
+            <td>Şehir kültürü, alışveriş, kahve molası</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
-    <!-- 2) Envato: Karpasia peninsula -> Image 2 -->
     <section>
-      <figure class="media">
+      <figure>
         <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/Gk3bxaCmxfDgQyVLCT5I.jpg" alt="Karpaz Yarımadası - Kıbrıs">
         <figcaption>Karpaz; sakin plajları ve dingin rotalarıyla adanın “yavaş” tarafını keşfetmek isteyenlere iyi gelir.</figcaption>
       </figure>
@@ -312,20 +126,17 @@
         adadaki deneyimi çok daha akıcı hâle getiriyor.
       </p>
 
-      <div class="callout">
-        <ul class="list-grid" style="margin:0;">
-          <li><strong>Ulaşım:</strong> Ada olduğu için ulaşım hava veya deniz yolu ile sağlanır. En sık tercih edilen seçenek hava yolu.</li>
-          <li><strong>Uçuş:</strong> Türkiye’nin birçok şehrinden Lefkoşa’ya bağlı Ercan Havalimanı’na direkt uçuşlar bulunur (~1,5–2 saat).</li>
-          <li><strong>Feribot:</strong> Mersin ve Alanya çıkışlı feribotlarla Girne Limanı’na ulaşmak da mümkündür.</li>
-          <li><strong>Para:</strong> Türk lirası yaygın; İngiliz sterlini ve Euro da birçok işletmede kabul edilebilir. Döviz bozdurmak kolaydır.</li>
-          <li><strong>Trafik:</strong> Soldan akar; direksiyon sağdadır. Kavşak sistemi yaygın, geçiş hakkı her zaman sağdan gelendedir.</li>
-        </ul>
-      </div>
+      <ul>
+        <li><strong>Ulaşım:</strong> Ada olduğu için ulaşım hava veya deniz yolu ile sağlanır. En sık tercih edilen seçenek hava yolu.</li>
+        <li><strong>Uçuş:</strong> Türkiye’nin birçok şehrinden Lefkoşa’ya bağlı Ercan Havalimanı’na direkt uçuşlar bulunur (~1,5–2 saat).</li>
+        <li><strong>Feribot:</strong> Mersin ve Alanya çıkışlı feribotlarla Girne Limanı’na ulaşmak da mümkündür.</li>
+        <li><strong>Para:</strong> Türk lirası yaygın; İngiliz sterlini ve Euro da birçok işletmede kabul edilebilir. Döviz bozdurmak kolaydır.</li>
+        <li><strong>Trafik:</strong> Soldan akar; direksiyon sağdadır. Kavşak sistemi yaygın, geçiş hakkı her zaman sağdan gelendedir.</li>
+      </ul>
     </section>
 
-    <!-- 3) Envato: Nicosia HDR -> Image 3 -->
     <section>
-      <figure class="media">
+      <figure>
         <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/0UHSdI8ySIEXNOqUkVqU.jpg" alt="Lefkoşa - Kıbrıs">
         <figcaption>Lefkoşa; hanları, çarşısı ve kültür duraklarıyla adanın şehir ritmini en iyi hissettiren noktalardan.</figcaption>
       </figure>
@@ -339,7 +150,7 @@
         Sahil boyunca uzanan restoranlar, kafeler ve barlar Girne’ye kendine has bir yaşam ritmi kazandırıyor.
         Limana hâkim konumdaki Girne Kalesi ise şehrin geçmişten bugüne uzanan hikâyesini sessizce izliyor.
       </p>
-      <p class="muted">
+      <p>
         Sadece şehir merkeziyle değil, Bellapais Manastırı, St. Hilarion Kalesi ve çevre köyleriyle de görülmeye değer Girne,
         Kuzey Kıbrıs’ta turizmin nabzını tutan durakların başında geliyor.
       </p>
@@ -351,7 +162,7 @@
         Augustinian mezhebine mensup rahipler olmuş. Bugün gördüğümüz görkemli hâlin büyük kısmı ise Lüzinyan Kralı III. Hugh ve ardından
         IV. Hugh dönemlerinde tamamlanmış. Osmanlı fethinden sonra Ortodoks Kilisesi’ne verilen manastır, 1974’ten bu yana müze olarak korunuyor.
       </p>
-      <p class="muted">
+      <p>
         En sağlam yapı olan kilise bölümü, 15. yüzyıl freskleriyle dikkat çekiyor. Gotik sanatın önemli özelliklerini taşıyan yemekhane kısmı ve
         avlunun doğusundaki rahiplerin meclis odası ise görülmesi gereken diğer bölümler arasında.
       </p>
@@ -363,7 +174,7 @@
         Yakındoğu ile Avrupa arasında güçlü bir geçiş noktası olmuştur. Lüzinyanlar Dönemi’nde altın çağını yaşayan Mağusa, surları, katedralleri ve
         sokaklarıyla hâlâ o dönemin izlerini taşıyor.
       </p>
-      <p class="muted">
+      <p>
         Dar sokaklar sizi Rum ve Latin Aziz George kiliselerine, Francis Kilisesi’ne, Kertikli Hamam’a ve Namık Kemal Zindanı’na çıkarıyor.
         Ayrıca şehirde Othello Kalesi, Gazimağusa Limanı, Lala Mustafa Paşa Camii ve Mağusa Surları gibi birçok tarihi yer bulunuyor.
         Aziz Barnabas Manastırı, Azize Anna Kilisesi, Salamis Antik Kenti ve Kutup Dede Türbesi de görülecekler arasında.
@@ -376,7 +187,7 @@
         Hemen yakınındaki Arasta Sokak, geleneksel çarşı havası ve gün boyu süren hareketliliğiyle şehrin gündelik yaşamını yansıtıyor.
         Bedesten ise Gotik mimarisiyle dikkat çekerken, bugün sergi ve kültür-sanat etkinliklerine ev sahipliği yapıyor.
       </p>
-      <p class="muted">
+      <p>
         Yenicami Sokak’taki Lüzinyan Evi, Mevlevi Tekke Müzesi ve Kumarcılar Hanı; Lefkoşa’nın çok katmanlı tarihi ve kültürünü hissetmenizi sağlar.
         Arabahmet Mahallesi’nde yer alan Derviş Paşa Konağı ise adanın eski yaşamına dair bir pencere açar.
       </p>
@@ -389,9 +200,8 @@
       </p>
     </section>
 
-    <!-- 4) Envato: Salamis ruins -> Image 4 -->
     <section>
-      <figure class="media">
+      <figure>
         <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/CngBV1QFhqV7EmQV4Nqq.jpg" alt="Salamis Antik Kenti - Kıbrıs">
         <figcaption>Salamis Antik Kenti; tiyatro, gymnasium ve bazilikalarıyla “açık hava müzesi” hissini en net yaşatan duraklardan.</figcaption>
       </figure>
@@ -408,15 +218,14 @@
         Yaklaşık 2 bin yıllık tarihiyle adanın en eski yerleşim alanları arasında bulunuyor. Tiyatrosu, gymnasiumu, Roma evleri ve bazilikalarıyla
         dolaştıkça katman katman bir tarih hissi sunuyor. Denizle iç içe konumu, burayı yalnızca bir antik kent olmaktan çıkarıp sakin bir yürüyüş rotasına dönüştürüyor.
       </p>
-      <p class="muted">
+      <p>
         Sessizliği, taşların arasından sızan zaman duygusu ve geniş alanı sayesinde Salamis, tarih merakı olanlar için olduğu kadar
         yavaş gezmeyi sevenler için de güçlü bir deneyim.
       </p>
     </section>
 
-    <!-- 5) Envato: St. Hilarion drone -> Image 5 -->
     <section>
-      <figure class="media">
+      <figure>
         <img src="https://api2.salamisbayconti.com/storage/carousels/February2026/Ur4odzK31F2d8narefa5.jpg" alt="St. Hilarion Kalesi ve Beşparmak Dağları - Kıbrıs">
         <figcaption>Beşparmak Dağları ve St. Hilarion; manzara, tarih ve yürüyüşü aynı rotada birleştirir.</figcaption>
       </figure>
@@ -433,7 +242,7 @@
         manzara ve tarih arasındaki dengeyi kusursuz biçimde kuruyor. Yaklaşık 700 metre yükseklikte konumlanan kale, Girne ve Akdeniz’e hâkim panoramasıyla öne çıkıyor.
         Basamakları tırmandıkça şehir geride kalıyor, rüzgâr ve sessizlik eşlik etmeye başlıyor.
       </p>
-      <p class="muted">
+      <p>
         Doğa, tarih ve manzara üçlüsünü aynı anda yaşamak isteyenler için burası, Kıbrıs’ın en güçlü duraklarından biri.
       </p>
     </section>
@@ -449,20 +258,11 @@
         bambaşka deneyim sunuyor.
       </p>
 
-      <div class="route-grid" aria-label="Önerilen rota kartları">
-        <div class="route-card">
-          <h4>1–2 Gün: Girne Odaklı</h4>
-          <p>Antik liman, Girne Kalesi, Bellapais ve sahil hattında gün batımı.</p>
-        </div>
-        <div class="route-card">
-          <h4>1 Gün: Gazimağusa & Salamis</h4>
-          <p>Surlar, Othello Kalesi, tarihi sokaklar ve Salamis’te yavaş yürüyüş.</p>
-        </div>
-        <div class="route-card">
-          <h4>1 Gün: Karpaz Kaçamağı</h4>
-          <p>Altınkum Plajı, Dipkarpaz ve sakin bir doğa günü.</p>
-        </div>
-      </div>
+      <ul aria-label="Önerilen rotalar">
+        <li><strong>1–2 Gün: Girne Odaklı</strong> — Antik liman, Girne Kalesi, Bellapais ve sahil hattında gün batımı.</li>
+        <li><strong>1 Gün: Gazimağusa &amp; Salamis</strong> — Surlar, Othello Kalesi, tarihi sokaklar ve Salamis’te yavaş yürüyüş.</li>
+        <li><strong>1 Gün: Karpaz Kaçamağı</strong> — Altınkum Plajı, Dipkarpaz ve sakin bir doğa günü.</li>
+      </ul>
     </section>
 
     <section>
@@ -471,12 +271,12 @@
         Kıbrıs’ı keşfet, Salamis Bay Conti ile konforlu bir konaklama deneyimi yaşa!
         Kıbrıs seyahatiniz için konforlu, keyifli ve ritmi yüksek bir konaklama arıyorsanız Salamis Bay Conti Resort Hotel güçlü bir seçenek sunuyor.
       </p>
-      <p class="muted">
+      <p>
         Tarihi Salamis plajlarının kıyısında, altın renkli ince kumlar ve masmavi denizle çevrili bu geniş resort, tatili yalnızca dinlenme değil,
         deneyim alanına dönüştürüyor. Ana bina odalarının yanı sıra villa gibi farklı konaklama alternatifleri, ister çift olarak ister ailece seyahat edenler için
         esnek bir yapı sağlıyor.
       </p>
-      <p class="muted">
+      <p>
         Gün içinde denizin ve doğanın tadını çıkarırken, akşamları animasyonlar, etkinlikler ve ünlü sanatçıların sahne aldığı özel konserlerle bambaşka bir
         atmosfere geçiyorsunuz. Aynı zamanda düğün, toplantı ve özel organizasyonlar için çok yönlü alanlar sunması, Salamis Bay Conti Resort Hotel’i bir buluşma
         noktası hâline getiriyor. Kıbrıs tatilinizi planlarken, farklı beklentilere cevap veren Kıbrıs otelleri arasında Salamis Bay Conti’yi değerlendirebilirsiniz.
