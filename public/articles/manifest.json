@@ -33,5 +33,17 @@
       "slug": "how-to-get-to-northern-cyprus",
       "title": "How to Get to Northern Cyprus? Flights, Ferries & Crossings"
     }
+  },
+  ,
+  {
+    "id": "cyprus-traditional-foods",
+    "tr": {
+      "slug": "kibrisin-meshur-lezzetleri",
+      "title": "Kıbrıs'ın Meşhur Yemekleri"
+    },
+    "en": {
+      "slug": "cyprus-traditional-foods",
+      "title": "Cyprus Traditional Foods: Famous Dishes & Local Flavors"
+    }
   }
 ]
