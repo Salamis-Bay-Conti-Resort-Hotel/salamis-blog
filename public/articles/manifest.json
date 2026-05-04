@@ -1,12 +1,10 @@
 [
   {
     "id": "cyprus-places-guide",
-
     "tr": {
       "slug": "kibrista-gezilecek-en-iyi-yerler",
       "title": "Kıbrıs Gezilecek Yerler Rehberi: Doğa, Tarih ve Kültür"
     },
-
     "en": {
       "slug": "best-places-to-visit-in-cyprus",
       "title": "The Best Places to Visit in Cyprus | Travel Guide"
@@ -43,6 +41,17 @@
     "en": {
       "slug": "cyprus-traditional-foods",
       "title": "Cyprus Traditional Foods: Famous Dishes & Local Flavors"
+    }
+  },
+  {
+    "id": "week-in-cyprus",
+    "tr": {
+      "slug": "kibrista-bir-hafta",
+      "title": "Kıbrıs’ta Bir Haftalık Tatil: Nereler Gezilir, Neler Yapılır?"
+    },
+    "en": {
+      "slug": "one-week-in-cyprus",
+      "title": "One Week in Cyprus: An Ultimate 7-Day Holiday"
     }
   }
 ]

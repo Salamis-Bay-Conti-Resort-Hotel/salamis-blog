@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Salamis Blog — Article Generator</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-2: #1f232c;
+    --border: #2a2f3a;
+    --text: #e8ecf1;
+    --muted: #9aa3b2;
+    --accent: #4f8cff;
+    --accent-2: #2dd4bf;
+    --danger: #ef4444;
+    --ok: #22c55e;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1300px; margin: 0 auto; padding: 28px 24px 80px; }
+  header.top { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px; }
+  header.top h1 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: 0.2px; }
+  header.top .hint { color: var(--muted); font-size: 13px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 1000px) { .grid { grid-template-columns: 1fr; } }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .panel h2 {
+    margin: 0 0 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+
+  .row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .row label { font-size: 13px; color: var(--muted); }
+  input[type="text"], textarea {
+    width: 100%;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+  }
+  input[type="text"]:focus, textarea:focus { border-color: var(--accent); }
+  textarea { min-height: 280px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; line-height: 1.55; }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin: 22px 0;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  button {
+    background: var(--accent);
+    color: white;
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  button.secondary { background: var(--panel-2); border: 1px solid var(--border); color: var(--text); }
+  button:hover { filter: brightness(1.1); }
+  button:active { transform: translateY(1px); }
+  .status { color: var(--muted); font-size: 13px; }
+  .status.ok { color: var(--ok); }
+  .status.err { color: var(--danger); }
+
+  .out h2 small { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 8px; font-size: 12px; }
+  .out pre {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 0;
+    max-height: 460px;
+    overflow: auto;
+    font-size: 12.5px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .out-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .out-head .btns { display: flex; gap: 8px; }
+  .out-head button { padding: 6px 10px; font-size: 12px; }
+
+  details { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; }
+  details summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+  details[open] summary { margin-bottom: 8px; }
+  details p, details ul { margin: 6px 0; font-size: 13px; color: var(--muted); }
+  details code { background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Article Generator</h1>
+  <span class="hint">Paste TR + EN content → get HTML + manifest entry</span>
+</header>
+
+<details>
+  <summary>How to format your content</summary>
+  <ul>
+    <li>First line = main title (used for &lt;h1&gt; and the page title if no override).</li>
+    <li><code>Kapak Görsel: https://...</code> (or just a URL on the line right after the title) = cover image inside &lt;header&gt;.</li>
+    <li>Lines that end with <code>:</code> become section titles (&lt;h2&gt;).</li>
+    <li>Any standalone URL line becomes a &lt;figure&gt; with auto alt + caption.</li>
+    <li>Blank lines separate paragraphs.</li>
+  </ul>
+</details>
+
+<div class="panel" style="margin-bottom: 20px;">
+  <h2>Article Meta</h2>
+  <div class="row">
+    <label for="slug">Slug ID (used in manifest "id")</label>
+    <input id="slug" type="text" placeholder="cyprus-places-guide" />
+  </div>
+</div>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>Turkish (TR)</h2>
+
+    <div class="row">
+      <label for="tr-slug">TR Slug (file name)</label>
+      <input id="tr-slug" type="text" placeholder="kibrista-gezilecek-en-iyi-yerler" />
+    </div>
+
+    <div class="row">
+      <label for="tr-title">TR Page Title (&lt;title&gt;)</label>
+      <input id="tr-title" type="text" placeholder="Kıbrıs Gezilecek Yerler Rehberi" />
+    </div>
+
+    <div class="row">
+      <label for="tr-desc">TR Meta Description</label>
+      <input id="tr-desc" type="text" placeholder="Kıbrıs'ta gezilecek en iyi yerler..." />
+    </div>
+
+    <div class="row">
+      <label for="tr-content">TR Content</label>
+      <textarea id="tr-content" placeholder="Kıbrıs Gezilecek Yerler Rehberi
+Kapak Görsel: https://example.com/cover.jpg
+
+Kıbrıs, Akdeniz'in en güzel adalarından biridir. Bu rehberde...
+
+Salamis Antik Kenti:
+https://example.com/salamis.jpg
+Salamis, Kıbrıs'ın en önemli antik şehirlerinden biridir...
+
+Girne Kalesi:
+Girne Kalesi, Bizans döneminden kalma..."></textarea>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>English (EN)</h2>
+
+    <div class="row">
+      <label for="en-slug">EN Slug (file name)</label>
+      <input id="en-slug" type="text" placeholder="best-places-to-visit-in-cyprus" />
+    </div>
+
+    <div class="row">
+      <label for="en-title">EN Page Title (&lt;title&gt;)</label>
+      <input id="en-title" type="text" placeholder="The Best Places to Visit in Cyprus" />
+    </div>
+
+    <div class="row">
+      <label for="en-desc">EN Meta Description</label>
+      <input id="en-desc" type="text" placeholder="Discover the best places to visit in Cyprus..." />
+    </div>
+
+    <div class="row">
+      <label for="en-content">EN Content</label>
+      <textarea id="en-content" placeholder="The Best Places to Visit in Cyprus
+Cover Image: https://example.com/cover.jpg
+
+Cyprus is one of the most beautiful islands in the Mediterranean. In this guide...
+
+Ancient City of Salamis:
+https://example.com/salamis.jpg
+Salamis is one of the most important ancient cities in Cyprus...
+
+Kyrenia Castle:
+Kyrenia Castle dates back to the Byzantine period..."></textarea>
+    </div>
+  </div>
+
+</div>
+
+<div class="actions">
+  <button id="generate">Generate HTML</button>
+  <button id="save" class="secondary">Save to Articles Folder</button>
+  <button id="clear" class="secondary">Clear</button>
+  <span id="status" class="status"></span>
+</div>
+
+<div class="status" id="folder-status" style="margin: -10px 0 16px;"></div>
+
+<div class="grid out">
+
+  <div class="panel">
+    <div class="out-head">
+      <h2>TR HTML <small id="tr-path"></small></h2>
+      <div class="btns">
+        <button class="secondary" data-copy="tr-output">Copy</button>
+        <button class="secondary" data-download="tr">Download</button>
+      </div>
+    </div>
+    <pre id="tr-output"></pre>
+  </div>
+
+  <div class="panel">
+    <div class="out-head">
+      <h2>EN HTML <small id="en-path"></small></h2>
+      <div class="btns">
+        <button class="secondary" data-copy="en-output">Copy</button>
+        <button class="secondary" data-download="en">Download</button>
+      </div>
+    </div>
+    <pre id="en-output"></pre>
+  </div>
+
+</div>
+
+<div class="panel" style="margin-top: 20px;">
+  <div class="out-head">
+    <h2>Manifest Entry</h2>
+    <div class="btns">
+      <button class="secondary" data-copy="manifest-output">Copy</button>
+    </div>
+  </div>
+  <pre id="manifest-output"></pre>
+</div>
+
+</div>
+
+<script>
+const URL_RE = /^https?:\/\/\S+$/i;
+const COVER_RE = /^(kapak görsel|cover image)\s*:\s*(\S+)?\s*$/i;
+
+function isUrlLine(s) { return URL_RE.test(s.trim()); }
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function parse(raw) {
+  const result = { title: '', cover: null, intro: [], sections: [] };
+  const text = (raw || '').replace(/\r\n/g, '\n').trim();
+  if (!text) return result;
+
+  const blocks = text.split(/\n\s*\n+/).map(b => b.trim()).filter(Boolean);
+  if (!blocks.length) return result;
+
+  const firstLines = blocks[0].split('\n').map(l => l.trim()).filter(Boolean);
+  result.title = firstLines[0] || '';
+
+  const queue = [];
+  if (firstLines.length > 1) {
+    let buf = [];
+    for (const line of firstLines.slice(1)) {
+      if (COVER_RE.test(line) || isUrlLine(line)) {
+        if (buf.length) { queue.push(buf.join('\n')); buf = []; }
+        queue.push(line);
+      } else {
+        buf.push(line);
+      }
+    }
+    if (buf.length) queue.push(buf.join('\n'));
+  }
+  for (let i = 1; i < blocks.length; i++) queue.push(blocks[i]);
+
+  let currentSection = null;
+
+  for (const block of queue) {
+    const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+    if (!lines.length) continue;
+
+    const coverMatch = lines[0].match(COVER_RE);
+    if (coverMatch) {
+      let url = coverMatch[2];
+      if (!url && lines[1] && isUrlLine(lines[1])) url = lines[1];
+      if (url) result.cover = url;
+      continue;
+    }
+
+    if (lines.length === 1 && isUrlLine(lines[0])) {
+      const fig = { type: 'figure', url: lines[0] };
+      if (currentSection) {
+        if (!currentSection.image) currentSection.image = { url: lines[0] };
+        else currentSection.body.push(fig);
+      } else if (!result.cover) {
+        result.cover = lines[0];
+      } else {
+        result.intro.push(fig);
+      }
+      continue;
+    }
+
+    if (/:\s*$/.test(lines[0])) {
+      const title = lines[0].replace(/:\s*$/, '').trim();
+      currentSection = { title, image: null, body: [] };
+      result.sections.push(currentSection);
+      const rest = lines.slice(1);
+      for (const r of rest) {
+        if (isUrlLine(r)) {
+          if (!currentSection.image) currentSection.image = { url: r };
+          else currentSection.body.push({ type: 'figure', url: r });
+        } else {
+          const last = currentSection.body[currentSection.body.length - 1];
+          if (last && last.type === 'p') last.text += ' ' + r;
+          else currentSection.body.push({ type: 'p', text: r });
+        }
+      }
+      continue;
+    }
+
+    const text = lines.join(' ');
+    const target = currentSection ? currentSection.body : result.intro;
+    target.push({ type: 'p', text });
+  }
+
+  return result;
+}
+
+function figure(url, altSource) {
+  const alt = altSource || 'image';
+  return [
+    '  <figure>',
+    `    <img src="${escapeHtml(url)}" alt="${escapeHtml(alt)}">`,
+    `    <figcaption>${escapeHtml(alt)}</figcaption>`,
+    '  </figure>'
+  ].join('\n');
+}
+
+function render(parsed, lang, pageTitle, metaDesc) {
+  const mainTitle = parsed.title || pageTitle || '';
+  const altCtx = mainTitle;
+
+  let body = '<header>\n';
+  body += `  <h1>${escapeHtml(mainTitle)}</h1>\n`;
+  if (parsed.cover) {
+    body += '\n' + figure(parsed.cover, altCtx) + '\n';
+  }
+  for (const item of parsed.intro) {
+    if (item.type === 'p') body += `\n  <p>${escapeHtml(item.text)}</p>\n`;
+    else body += '\n' + figure(item.url, altCtx) + '\n';
+  }
+  body += '</header>\n\n<main>\n';
+
+  for (const sec of parsed.sections) {
+    body += '\n<section>\n';
+    body += `  <h2>${escapeHtml(sec.title)}</h2>\n`;
+    if (sec.image) body += '\n' + figure(sec.image.url, sec.title) + '\n';
+    for (const item of sec.body) {
+      if (item.type === 'p') body += `\n  <p>${escapeHtml(item.text)}</p>\n`;
+      else body += '\n' + figure(item.url, sec.title) + '\n';
+    }
+    body += '</section>\n';
+  }
+  body += '\n</main>\n';
+
+  return `<!DOCTYPE html>
+<html lang="${lang}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>${escapeHtml(pageTitle || mainTitle)}</title>
+  <meta name="description" content="${escapeHtml(metaDesc || '')}" />
+</head>
+
+<body>
+
+${body}
+</body>
+</html>
+`;
+}
+
+function $(id) { return document.getElementById(id); }
+
+function setStatus(msg, type) {
+  const s = $('status');
+  s.textContent = msg || '';
+  s.className = 'status' + (type ? ' ' + type : '');
+}
+
+function generate() {
+  const id = $('slug').value.trim();
+  const trSlug = $('tr-slug').value.trim();
+  const enSlug = $('en-slug').value.trim();
+  const trTitle = $('tr-title').value.trim();
+  const enTitle = $('en-title').value.trim();
+  const trDesc = $('tr-desc').value.trim();
+  const enDesc = $('en-desc').value.trim();
+  const trRaw = $('tr-content').value;
+  const enRaw = $('en-content').value;
+
+  if (!id) { setStatus('Slug ID is required.', 'err'); return; }
+  if (!trSlug || !enSlug) { setStatus('Both TR and EN slugs are required.', 'err'); return; }
+  if (!trRaw.trim() || !enRaw.trim()) { setStatus('Both TR and EN content are required.', 'err'); return; }
+
+  const trParsed = parse(trRaw);
+  const enParsed = parse(enRaw);
+
+  const trHtml = render(trParsed, 'tr', trTitle, trDesc);
+  const enHtml = render(enParsed, 'en', enTitle, enDesc);
+
+  const manifest = {
+    id,
+    tr: { slug: trSlug, title: trTitle || trParsed.title },
+    en: { slug: enSlug, title: enTitle || enParsed.title }
+  };
+
+  $('tr-output').textContent = trHtml;
+  $('en-output').textContent = enHtml;
+  $('manifest-output').textContent = JSON.stringify(manifest, null, 2);
+  $('tr-path').textContent = `/tr/${trSlug}.html`;
+  $('en-path').textContent = `/en/${enSlug}.html`;
+
+  setStatus('Generated.', 'ok');
+}
+
+function clearAll() {
+  ['slug','tr-slug','en-slug','tr-title','en-title','tr-desc','en-desc','tr-content','en-content']
+    .forEach(id => { $(id).value = ''; });
+  $('tr-output').textContent = '';
+  $('en-output').textContent = '';
+  $('manifest-output').textContent = '';
+  $('tr-path').textContent = '';
+  $('en-path').textContent = '';
+  setStatus('');
+}
+
+function downloadFile(name, content) {
+  const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  const ok = document.execCommand('copy');
+  document.body.removeChild(ta);
+  if (!ok) throw new Error('execCommand copy failed');
+}
+
+document.addEventListener('click', async (e) => {
+  const copyId = e.target.dataset.copy;
+  if (copyId) {
+    const text = $(copyId).textContent;
+    if (!text) { setStatus('Nothing to copy yet.', 'err'); return; }
+    try {
+      await copyText(text);
+      setStatus('Copied to clipboard.', 'ok');
+    } catch (err) {
+      setStatus('Copy failed: ' + (err && err.message ? err.message : err), 'err');
+    }
+    return;
+  }
+  const dl = e.target.dataset.download;
+  if (dl === 'tr') {
+    const slug = $('tr-slug').value.trim() || 'article';
+    const text = $('tr-output').textContent;
+    if (!text) { setStatus('Generate first.', 'err'); return; }
+    downloadFile(`${slug}.html`, text);
+  } else if (dl === 'en') {
+    const slug = $('en-slug').value.trim() || 'article';
+    const text = $('en-output').textContent;
+    if (!text) { setStatus('Generate first.', 'err'); return; }
+    downloadFile(`${slug}.html`, text);
+  }
+});
+
+$('generate').addEventListener('click', generate);
+$('clear').addEventListener('click', clearAll);
+
+const isServed = location.protocol === 'http:' || location.protocol === 'https:';
+
+function updateFolderStatus() {
+  const el = $('folder-status');
+  if (!isServed) {
+    el.textContent = 'Server mode required for "Save to Articles Folder". Run: node server.js  →  open http://localhost:5173/admin.html';
+    el.className = 'status err';
+  } else {
+    el.textContent = 'Server mode: Save will write directly to public/articles/ and update manifest.json.';
+    el.className = 'status ok';
+  }
+}
+
+async function save() {
+  const trText = $('tr-output').textContent;
+  const enText = $('en-output').textContent;
+  if (!trText || !enText) {
+    setStatus('Click Generate first.', 'err');
+    return;
+  }
+  if (!isServed) {
+    setStatus('Open this page through the local server (node server.js) to save.', 'err');
+    return;
+  }
+
+  const id = $('slug').value.trim();
+  const trSlug = $('tr-slug').value.trim();
+  const enSlug = $('en-slug').value.trim();
+  const trTitle = $('tr-title').value.trim();
+  const enTitle = $('en-title').value.trim();
+
+  try {
+    setStatus('Saving…');
+    const r = await fetch('/api/save', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        id,
+        tr: { slug: trSlug, title: trTitle, html: trText },
+        en: { slug: enSlug, title: enTitle, html: enText },
+      }),
+    });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+    setStatus(`Saved → ${data.files.tr}, ${data.files.en}, manifest updated.`, 'ok');
+  } catch (err) {
+    setStatus('Save failed: ' + (err && err.message ? err.message : err), 'err');
+  }
+}
+
+$('save').addEventListener('click', save);
+updateFolderStatus();
+</script>
+
+</body>
+</html>
