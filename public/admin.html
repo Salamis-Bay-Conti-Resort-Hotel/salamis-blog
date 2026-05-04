@@ -268,6 +268,30 @@ const COVER_RE = /^(kapak görsel|cover image)\s*:\s*(\S+)?\s*$/i;
 
 function isUrlLine(s) { return URL_RE.test(s.trim()); }
 
+function pushText(target, raw) {
+  const t = (raw || '').trim();
+  if (!t) return;
+  const urlRe = /https?:\/\/\S+/g;
+  let last = 0;
+  let any = false;
+  let m;
+  while ((m = urlRe.exec(t)) !== null) {
+    any = true;
+    if (m.index > last) {
+      const before = t.slice(last, m.index).trim();
+      if (before) target.push({ type: 'p', text: before });
+    }
+    const url = m[0].replace(/[.,;:!?)\]"']+$/, '');
+    target.push({ type: 'figure', url });
+    last = m.index + m[0].length;
+  }
+  if (!any) { target.push({ type: 'p', text: t }); return; }
+  if (last < t.length) {
+    const after = t.slice(last).trim();
+    if (after) target.push({ type: 'p', text: after });
+  }
+}
+
 function escapeHtml(s) {
   return String(s)
     .replace(/&/g, '&amp;')
@@ -334,22 +358,24 @@ function parse(raw) {
       currentSection = { title, image: null, body: [] };
       result.sections.push(currentSection);
       const rest = lines.slice(1);
+      let buf = '';
+      const flush = () => { if (buf.trim()) pushText(currentSection.body, buf.trim()); buf = ''; };
       for (const r of rest) {
         if (isUrlLine(r)) {
+          flush();
           if (!currentSection.image) currentSection.image = { url: r };
           else currentSection.body.push({ type: 'figure', url: r });
         } else {
-          const last = currentSection.body[currentSection.body.length - 1];
-          if (last && last.type === 'p') last.text += ' ' + r;
-          else currentSection.body.push({ type: 'p', text: r });
+          buf += (buf ? ' ' : '') + r;
         }
       }
+      flush();
       continue;
     }
 
     const text = lines.join(' ');
     const target = currentSection ? currentSection.body : result.intro;
-    target.push({ type: 'p', text });
+    pushText(target, text);
   }
 
   return result;
