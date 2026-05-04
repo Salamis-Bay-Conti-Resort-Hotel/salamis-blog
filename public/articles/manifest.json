@@ -53,5 +53,38 @@
       "slug": "one-week-in-cyprus",
       "title": "One Week in Cyprus: An Ultimate 7-Day Holiday"
     }
+  },
+  {
+    "id": "best-time-to-visit-cyprus",
+    "tr": {
+      "slug": "en-uygun-kibris-seyahati-zamani",
+      "title": "Kıbrıs Seyahati Ne Zaman Planlanmalı?"
+    },
+    "en": {
+      "slug": "best-time-to-visit-cyprus",
+      "title": "Best Time to Visit Cyprus: Monthly Weather & Season Guide"
+    }
+  },
+  {
+    "id": "bellapais-monastry",
+    "tr": {
+      "slug": "bellapais-manastir-rehberi",
+      "title": "Bellapais Manastırı: Tarihi, Eşsiz Manzarası ve Ziyaret Bilgileri"
+    },
+    "en": {
+      "slug": "bellapais-monastry-guide",
+      "title": "Bellapais Monastery Guide: History, Views & Visiting Tips"
+    }
+  },
+  {
+    "id": "varosha-ghost-town-guide",
+    "tr": {
+      "slug": "kapali-maras-hakkinda-her-sey",
+      "title": "Kıbrıs Kapalı Maraş Hakkında Her Şey"
+    },
+    "en": {
+      "slug": "varosha-ghost-town-guide",
+      "title": "Varosha Guide: Exploring Famagusta’s Legendary Ghost Town"
+    }
   }
 ]
