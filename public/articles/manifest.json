@@ -86,5 +86,49 @@
       "slug": "varosha-ghost-town-guide",
       "title": "Varosha Guide: Exploring Famagusta’s Legendary Ghost Town"
     }
+  },
+  {
+    "id": "places-to-visit-in-magusa",
+    "tr": {
+      "slug": "magusada-gezilecek-en-iyi-yerler",
+      "title": "Gazimağusa’da Gezi Rehberi: Görülmesi Gereken Yerler"
+    },
+    "en": {
+      "slug": "best-places-to-visit-in-famagusta",
+      "title": "Discover Famagusta: Must-See Ancient Sites in Northern Cyprus"
+    }
+  },
+  {
+    "id": "cyprus-bays",
+    "tr": {
+      "slug": "kibris-koylari",
+      "title": "Kuzey Kıbrıs Koyları Nelerdir?"
+    },
+    "en": {
+      "slug": "cyprus-bays",
+      "title": "Northern Cyprus Bays Guide | Best Beaches & Coves"
+    }
+  },
+  {
+    "id": "north-cyprus-beaches",
+    "tr": {
+      "slug": "kuzey-kibris-plajlari",
+      "title": "Kuzey Kıbrıs’ta Görülmesi Gereken Plajlar"
+    },
+    "en": {
+      "slug": "north-cyprus-beaches",
+      "title": "Northern Cyprus Beaches Guide"
+    }
+  },
+  {
+    "id": "place-to-visit-in-nprth-cyprus",
+    "tr": {
+      "slug": "kuzey-kibrista-gorulmesi-gereken-yerler",
+      "title": "Kuzey Kıbrıs’ta Görülmesi Gereken Tarihi Yerler"
+    },
+    "en": {
+      "slug": "place-to-visit-in-nprth-cyprus",
+      "title": "Northern Cyprus Historical Sites: Top Places to Explore"
+    }
   }
 ]
