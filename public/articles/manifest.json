@@ -141,5 +141,16 @@
       "slug": "places-to-watch-sunset-in-cyprus",
       "title": "Where to Watch the Sunset in Cyprus | Top Sunset Points"
     }
+  },
+  {
+    "id": "cyprus-festivals",
+    "tr": {
+      "slug": "kibris-festivalleri",
+      "title": "Kuzey Kıbrıs Festivalleri"
+    },
+    "en": {
+      "slug": "cyprus-festivals",
+      "title": "A Guide to the Most Popular Festivals in Cyprus"
+    }
   }
 ]
