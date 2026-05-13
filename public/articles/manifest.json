@@ -152,5 +152,27 @@
       "slug": "cyprus-festivals",
       "title": "A Guide to the Most Popular Festivals in Cyprus"
     }
+  },
+  {
+    "id": "best-places-to-visit-in-lefke",
+    "tr": {
+      "slug": "lefkede-gezilecek-en-iyi-yerler",
+      "title": "Kıbrıs Lefke’de Gezilecek En İyi Yerler | Yerel Rehber"
+    },
+    "en": {
+      "slug": "best-places-to-visit-in-lefke",
+      "title": "Best Places to Visit in Lefke, North Cyprus | Local Guide"
+    }
+  },
+  {
+    "id": "everything-about-kyrenia-castle",
+    "tr": {
+      "slug": "girne-kalesi-hakkinda-her-sey",
+      "title": "Girne Kalesi hakkında bilmeniz gereken her şey"
+    },
+    "en": {
+      "slug": "everything-about-kyrenia-castle",
+      "title": "Kyrenia Castle Guide: History, Visiting Tips & Facts"
+    }
   }
 ]
