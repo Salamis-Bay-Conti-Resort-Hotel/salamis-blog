@@ -121,14 +121,25 @@
     }
   },
   {
-    "id": "place-to-visit-in-nprth-cyprus",
+    "id": "place-to-visit-in-north-cyprus",
     "tr": {
       "slug": "kuzey-kibrista-gorulmesi-gereken-yerler",
       "title": "Kuzey Kıbrıs’ta Görülmesi Gereken Tarihi Yerler"
     },
     "en": {
-      "slug": "place-to-visit-in-nprth-cyprus",
+      "slug": "place-to-visit-in-north-cyprus",
       "title": "Northern Cyprus Historical Sites: Top Places to Explore"
+    }
+  },
+  {
+    "id": "places-to-watch-sunset-in-cyprus",
+    "tr": {
+      "slug": "kibrista-gunbatimi-izlenecek-yerler",
+      "title": "Kıbrıs’ta Gün Batımı İzlenecek Lokasyonlar"
+    },
+    "en": {
+      "slug": "places-to-watch-sunset-in-cyprus",
+      "title": "Where to Watch the Sunset in Cyprus | Top Sunset Points"
     }
   }
 ]
