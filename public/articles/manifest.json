@@ -196,5 +196,16 @@
       "slug": "soli-ancient-city",
       "title": "The Ancient City of Cyprus Through History"
     }
+  },
+  {
+    "id": "salamis-ruins-guide",
+    "tr": {
+      "slug": "salamis-harabeleri-gezi-rehberi",
+      "title": "Kıbrıs Salamis Harabeleri Gezi Rehberi"
+    },
+    "en": {
+      "slug": "salamis-ruins-guide",
+      "title": "Exploring the Salamis Ruins: Cyprus’ Ancient Wonder"
+    }
   }
 ]
