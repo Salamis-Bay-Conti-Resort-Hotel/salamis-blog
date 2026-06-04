@@ -174,5 +174,16 @@
       "slug": "everything-about-kyrenia-castle",
       "title": "Kyrenia Castle Guide: History, Visiting Tips & Facts"
     }
+  },
+  {
+    "id": "place-to-see-in-kyrenia",
+    "tr": {
+      "slug": "girnede-gezilecek-yerler",
+      "title": "Girne'de Gezilecek Yerler"
+    },
+    "en": {
+      "slug": "place-to-see-in-kyrenia",
+      "title": "Top Attractions and Must-See Places in Kyrenia"
+    }
   }
 ]
