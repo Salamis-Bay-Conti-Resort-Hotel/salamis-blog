@@ -185,5 +185,16 @@
       "slug": "place-to-see-in-kyrenia",
       "title": "Top Attractions and Must-See Places in Kyrenia"
     }
+  },
+  {
+    "id": "soli-ancient-city",
+    "tr": {
+      "slug": "soli-antik-kenti",
+      "title": "Kıbrıs Soli Antik Kenti Hikayesi: Tarih ve Gezilecek Yerler"
+    },
+    "en": {
+      "slug": "soli-ancient-city",
+      "title": "The Ancient City of Cyprus Through History"
+    }
   }
 ]
