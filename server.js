@@ -88,7 +88,11 @@ async function handleSave(req, res) {
 
 async function serveStatic(req, res) {
   let urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
-  if (urlPath === '/' || urlPath === '/admin' || urlPath === '/admin/') urlPath = '/admin.html';
+  if (urlPath === '/' || urlPath === '/admin' || urlPath === '/admin/') {
+    const data = await fs.readFile(path.join(ROOT, 'admin.html'));
+    res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
+    return res.end(data);
+  }
   const filePath = path.normalize(path.join(PUBLIC_DIR, urlPath));
   if (!filePath.startsWith(PUBLIC_DIR)) return send(res, 403, { error: 'forbidden' });
   if (!fss.existsSync(filePath) || !fss.statSync(filePath).isFile()) {
