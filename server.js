@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs/promises');
 const fss = require('fs');
 const path = require('path');
+const { execFile } = require('child_process');
 
 const ROOT = __dirname;
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -98,9 +99,59 @@ async function serveStatic(req, res) {
   res.end(data);
 }
 
+function runGit(args) {
+  return new Promise((resolve) => {
+    execFile('git', args, { cwd: ROOT, encoding: 'utf8' }, (err, stdout, stderr) => {
+      resolve({ code: err ? (err.code || 1) : 0, stdout: stdout || '', stderr: stderr || '' });
+    });
+  });
+}
+
+async function handlePublish(req, res) {
+  let body = {};
+  try { body = JSON.parse(await readBody(req)); } catch {}
+  const title = (body.title || '').trim();
+  const slug = (body.slug || '').trim();
+  const customMsg = (body.message || '').trim();
+  const message = customMsg
+    || (title ? `add: ${title}` : (slug ? `publish: ${slug}` : 'publish article changes'));
+
+  const status = await runGit(['status', '--porcelain', '--', 'public/articles']);
+  if (status.code !== 0) return send(res, 500, { error: status.stderr || 'git status failed' });
+  if (!status.stdout.trim()) {
+    return send(res, 200, { ok: true, skipped: true, message: 'No article changes to publish.' });
+  }
+
+  const add = await runGit(['add', '--', 'public/articles']);
+  if (add.code !== 0) return send(res, 500, { error: add.stderr || 'git add failed' });
+
+  const staged = await runGit(['diff', '--cached', '--name-only', '--', 'public/articles']);
+  if (!staged.stdout.trim()) {
+    return send(res, 200, { ok: true, skipped: true, message: 'Nothing staged after add.' });
+  }
+
+  const commit = await runGit(['commit', '-m', message]);
+  if (commit.code !== 0) return send(res, 500, { error: commit.stderr || commit.stdout || 'git commit failed' });
+
+  const push = await runGit(['push']);
+  if (push.code !== 0) {
+    return send(res, 500, {
+      error: 'commit succeeded but push failed: ' + (push.stderr || push.stdout),
+      message,
+    });
+  }
+
+  send(res, 200, {
+    ok: true,
+    message,
+    files: staged.stdout.trim().split('\n'),
+  });
+}
+
 const server = http.createServer(async (req, res) => {
   try {
     if (req.method === 'POST' && req.url === '/api/save') return await handleSave(req, res);
+    if (req.method === 'POST' && req.url === '/api/publish') return await handlePublish(req, res);
     if (req.method === 'GET') return await serveStatic(req, res);
     send(res, 405, { error: 'method not allowed' });
   } catch (err) {

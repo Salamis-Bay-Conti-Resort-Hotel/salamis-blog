@@ -84,6 +84,7 @@
     cursor: pointer;
   }
   button.secondary { background: var(--panel-2); border: 1px solid var(--border); color: var(--text); }
+  button.publish { background: var(--accent-2); color: #0f1115; font-weight: 600; }
   button:hover { filter: brightness(1.1); }
   button:active { transform: translateY(1px); }
   .status { color: var(--muted); font-size: 13px; }
@@ -218,6 +219,7 @@ Kyrenia Castle dates back to the Byzantine period..."></textarea>
 <div class="actions">
   <button id="generate">Generate HTML</button>
   <button id="save" class="secondary">Save to Articles Folder</button>
+  <button id="publish" class="publish">Publish to GitHub</button>
   <button id="clear" class="secondary">Clear</button>
   <span id="status" class="status"></span>
 </div>
@@ -597,6 +599,32 @@ async function save() {
 }
 
 $('save').addEventListener('click', save);
+
+async function publish() {
+  if (!isServed) {
+    setStatus('Run via local server (node server.js) to publish.', 'err');
+    return;
+  }
+  const slug = $('slug').value.trim();
+  const title = $('tr-title').value.trim() || $('en-title').value.trim();
+  if (!confirm('Commit article changes and push to GitHub?')) return;
+  try {
+    setStatus('Publishing…');
+    const r = await fetch('/api/publish', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ slug, title }),
+    });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+    if (data.skipped) setStatus(data.message || 'Nothing to publish.', 'ok');
+    else setStatus(`Pushed: ${data.message} (${(data.files || []).length} files)`, 'ok');
+  } catch (err) {
+    setStatus('Publish failed: ' + (err && err.message ? err.message : err), 'err');
+  }
+}
+
+$('publish').addEventListener('click', publish);
 updateFolderStatus();
 </script>
 
