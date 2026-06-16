@@ -1,6 +1,7 @@
 [
   {
     "id": "cyprus-places-guide",
+    "datePublished": "2026-02-03",
     "tr": {
       "slug": "kibrista-gezilecek-en-iyi-yerler",
       "title": "Kıbrıs Gezilecek Yerler Rehberi: Doğa, Tarih ve Kültür"
@@ -12,17 +13,19 @@
   },
   {
     "id": "cyprus-souvenirs-guide",
+    "datePublished": "2026-02-10",
     "tr": {
       "slug": "kibristan-alinacak-hediyelik-esyalar",
-      "title": "Kıbrıs’a Özgü Hediyelik Eşyalar"
+      "title": "Kıbrıs'a Özgü Hediyelik Eşyalar"
     },
     "en": {
       "slug": "souvenirs-to-buy-in-cyprus",
-      "title": "What Souvenirs to Buy in Cyprus? A Local’s Shopping Guide"
+      "title": "What Souvenirs to Buy in Cyprus? A Local's Shopping Guide"
     }
   },
   {
     "id": "northern-cyprus-travel-guide",
+    "datePublished": "2026-02-17",
     "tr": {
       "slug": "kuzey-kibrisa-nasil-gidilir",
       "title": "Kuzey Kıbrıs Yolculuk Rehberi: Nasıl ve Ne Zaman Gidilir?"
@@ -34,6 +37,7 @@
   },
   {
     "id": "cyprus-gastronomy-guide",
+    "datePublished": "2026-02-24",
     "tr": {
       "slug": "kibrisin-meshur-lezzetleri",
       "title": "Kıbrıs'ın Meşhur Yemekleri"
@@ -45,9 +49,10 @@
   },
   {
     "id": "week-in-cyprus",
+    "datePublished": "2026-03-03",
     "tr": {
       "slug": "kibrista-bir-hafta",
-      "title": "Kıbrıs’ta Bir Haftalık Tatil: Nereler Gezilir, Neler Yapılır?"
+      "title": "Kıbrıs'ta Bir Haftalık Tatil: Nereler Gezilir, Neler Yapılır?"
     },
     "en": {
       "slug": "one-week-in-cyprus",
@@ -56,6 +61,7 @@
   },
   {
     "id": "best-time-to-visit-cyprus",
+    "datePublished": "2026-03-10",
     "tr": {
       "slug": "en-uygun-kibris-seyahati-zamani",
       "title": "Kıbrıs Seyahati Ne Zaman Planlanmalı?"
@@ -67,6 +73,7 @@
   },
   {
     "id": "bellapais-monastry",
+    "datePublished": "2026-03-17",
     "tr": {
       "slug": "bellapais-manastir-rehberi",
       "title": "Bellapais Manastırı: Tarihi, Eşsiz Manzarası ve Ziyaret Bilgileri"
@@ -78,20 +85,22 @@
   },
   {
     "id": "varosha-ghost-town-guide",
+    "datePublished": "2026-03-24",
     "tr": {
       "slug": "kapali-maras-hakkinda-her-sey",
       "title": "Kıbrıs Kapalı Maraş Hakkında Her Şey"
     },
     "en": {
       "slug": "varosha-ghost-town-guide",
-      "title": "Varosha Guide: Exploring Famagusta’s Legendary Ghost Town"
+      "title": "Varosha Guide: Exploring Famagusta's Legendary Ghost Town"
     }
   },
   {
     "id": "places-to-visit-in-magusa",
+    "datePublished": "2026-04-07",
     "tr": {
       "slug": "magusada-gezilecek-en-iyi-yerler",
-      "title": "Gazimağusa’da Gezi Rehberi: Görülmesi Gereken Yerler"
+      "title": "Gazimağusa'da Gezi Rehberi: Görülmesi Gereken Yerler"
     },
     "en": {
       "slug": "best-places-to-visit-in-famagusta",
@@ -100,6 +109,7 @@
   },
   {
     "id": "cyprus-bays",
+    "datePublished": "2026-04-14",
     "tr": {
       "slug": "kibris-koylari",
       "title": "Kuzey Kıbrıs Koyları Nelerdir?"
@@ -111,9 +121,10 @@
   },
   {
     "id": "north-cyprus-beaches",
+    "datePublished": "2026-04-21",
     "tr": {
       "slug": "kuzey-kibris-plajlari",
-      "title": "Kuzey Kıbrıs’ta Görülmesi Gereken Plajlar"
+      "title": "Kuzey Kıbrıs'ta Görülmesi Gereken Plajlar"
     },
     "en": {
       "slug": "north-cyprus-beaches",
@@ -122,9 +133,10 @@
   },
   {
     "id": "place-to-visit-in-north-cyprus",
+    "datePublished": "2026-04-28",
     "tr": {
       "slug": "kuzey-kibrista-gorulmesi-gereken-yerler",
-      "title": "Kuzey Kıbrıs’ta Görülmesi Gereken Tarihi Yerler"
+      "title": "Kuzey Kıbrıs'ta Görülmesi Gereken Tarihi Yerler"
     },
     "en": {
       "slug": "place-to-visit-in-north-cyprus",
@@ -133,9 +145,10 @@
   },
   {
     "id": "places-to-watch-sunset-in-cyprus",
+    "datePublished": "2026-05-05",
     "tr": {
       "slug": "kibrista-gunbatimi-izlenecek-yerler",
-      "title": "Kıbrıs’ta Gün Batımı İzlenecek Lokasyonlar"
+      "title": "Kıbrıs'ta Gün Batımı İzlenecek Lokasyonlar"
     },
     "en": {
       "slug": "places-to-watch-sunset-in-cyprus",
@@ -144,6 +157,7 @@
   },
   {
     "id": "cyprus-festivals",
+    "datePublished": "2026-05-12",
     "tr": {
       "slug": "kibris-festivalleri",
       "title": "Kuzey Kıbrıs Festivalleri"
@@ -155,9 +169,10 @@
   },
   {
     "id": "best-places-to-visit-in-lefke",
+    "datePublished": "2026-05-19",
     "tr": {
       "slug": "lefkede-gezilecek-en-iyi-yerler",
-      "title": "Kıbrıs Lefke’de Gezilecek En İyi Yerler | Yerel Rehber"
+      "title": "Kıbrıs Lefke'de Gezilecek En İyi Yerler | Yerel Rehber"
     },
     "en": {
       "slug": "best-places-to-visit-in-lefke",
@@ -166,6 +181,7 @@
   },
   {
     "id": "everything-about-kyrenia-castle",
+    "datePublished": "2026-05-26",
     "tr": {
       "slug": "girne-kalesi-hakkinda-her-sey",
       "title": "Girne Kalesi hakkında bilmeniz gereken her şey"
@@ -177,6 +193,7 @@
   },
   {
     "id": "place-to-see-in-kyrenia",
+    "datePublished": "2026-06-02",
     "tr": {
       "slug": "girnede-gezilecek-yerler",
       "title": "Girne'de Gezilecek Yerler"
@@ -188,6 +205,7 @@
   },
   {
     "id": "soli-ancient-city",
+    "datePublished": "2026-06-09",
     "tr": {
       "slug": "soli-antik-kenti",
       "title": "Kıbrıs Soli Antik Kenti Hikayesi: Tarih ve Gezilecek Yerler"
@@ -199,17 +217,19 @@
   },
   {
     "id": "salamis-ruins-guide",
+    "datePublished": "2026-06-12",
     "tr": {
       "slug": "salamis-harabeleri-gezi-rehberi",
       "title": "Kıbrıs Salamis Harabeleri Gezi Rehberi"
     },
     "en": {
       "slug": "salamis-ruins-guide",
-      "title": "Exploring the Salamis Ruins: Cyprus’ Ancient Wonder"
+      "title": "Exploring the Salamis Ruins: Cyprus' Ancient Wonder"
     }
   },
   {
     "id": "photogenic-places-in-cyprus",
+    "datePublished": "2026-06-16",
     "tr": {
       "slug": "kibrista-fotograf-cekilecek-yerler",
       "title": "Kıbrıs'ta Fotoğraf Çekilecek Yerler: En İyi 13 Lokasyon"
