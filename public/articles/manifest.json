@@ -238,5 +238,16 @@
       "slug": "photogenic-places-in-cyprus",
       "title": "Most Photogenic Places in Cyprus for Stunning Travel Photos"
     }
+  },
+  {
+    "id": "ideal-places-for-workation",
+    "tr": {
+      "slug": "kibris-workation-mekanlari",
+      "title": "Kıbrıs Workation Rehberi | Uzaktan Çalışanlar İçin Tatil"
+    },
+    "en": {
+      "slug": "ideal-places-for-workation",
+      "title": "Why Cyprus Is Ideal for Your Next Workation"
+    }
   }
 ]
