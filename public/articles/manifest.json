@@ -249,5 +249,16 @@
       "slug": "ideal-places-for-workation",
       "title": "Why Cyprus Is Ideal for Your Next Workation"
     }
+  },
+  {
+    "id": "hilarion-castle-kyrenia",
+    "tr": {
+      "slug": "hilarion-kalesi-girne",
+      "title": "Hilarion Kalesi Gezi Rehberi"
+    },
+    "en": {
+      "slug": "hilarion-castle-kyrenia",
+      "title": "St. Hilarion Castle Kyrenia Visitor Guide"
+    }
   }
 ]
