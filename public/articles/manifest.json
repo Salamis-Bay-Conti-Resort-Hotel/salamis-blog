@@ -260,5 +260,16 @@
       "slug": "hilarion-castle-kyrenia",
       "title": "St. Hilarion Castle Kyrenia Visitor Guide"
     }
+  },
+  {
+    "id": "relaxation-and-yoga-guide",
+    "tr": {
+      "slug": "yoga-ve-dinlenme-rehberi",
+      "title": "Kıbrıs'ta Wellness Tatili: Yoga ve Dinlenme Rehberi"
+    },
+    "en": {
+      "slug": "relaxation-and-yoga-guide",
+      "title": "Cyprus Wellness Holiday: Relaxation and Yoga Guide"
+    }
   }
 ]
