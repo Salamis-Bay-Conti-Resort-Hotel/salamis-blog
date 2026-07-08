@@ -302,6 +302,13 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
+const BRAND_RE = /Salamis\s+Bay\s+Conti/gi;
+
+function linkifyBrand(escapedText, lang) {
+  const href = lang === 'en' ? 'https://salamisbayconti.com/en' : 'https://salamisbayconti.com';
+  return escapedText.replace(BRAND_RE, (match) => `<a href="${href}" target="_blank" rel="noopener">${match}</a>`);
+}
+
 function parse(raw) {
   const result = { title: '', cover: null, intro: [], sections: [] };
   const text = (raw || '').replace(/\r\n/g, '\n').trim();
@@ -403,7 +410,7 @@ function render(parsed, lang, pageTitle, metaDesc) {
     body += '\n' + figure(parsed.cover, altCtx) + '\n';
   }
   for (const item of parsed.intro) {
-    if (item.type === 'p') body += `\n  <p>${escapeHtml(item.text)}</p>\n`;
+    if (item.type === 'p') body += `\n  <p>${linkifyBrand(escapeHtml(item.text), lang)}</p>\n`;
     else body += '\n' + figure(item.url, altCtx) + '\n';
   }
   body += '</header>\n\n<main>\n';
@@ -413,7 +420,7 @@ function render(parsed, lang, pageTitle, metaDesc) {
     body += `  <h2>${escapeHtml(sec.title)}</h2>\n`;
     if (sec.image) body += '\n' + figure(sec.image.url, sec.title) + '\n';
     for (const item of sec.body) {
-      if (item.type === 'p') body += `\n  <p>${escapeHtml(item.text)}</p>\n`;
+      if (item.type === 'p') body += `\n  <p>${linkifyBrand(escapeHtml(item.text), lang)}</p>\n`;
       else body += '\n' + figure(item.url, sec.title) + '\n';
     }
     body += '</section>\n';
