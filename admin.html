@@ -445,6 +445,20 @@ ${body}
 `;
 }
 
+const TURKISH_CHAR_MAP = {
+  'ç': 'c', 'Ç': 'c', 'ğ': 'g', 'Ğ': 'g', 'ı': 'i', 'İ': 'i',
+  'ö': 'o', 'Ö': 'o', 'ş': 's', 'Ş': 's', 'ü': 'u', 'Ü': 'u',
+};
+
+function slugify(text, maxWords = 6) {
+  let s = String(text || '').replace(/[çÇğĞıİöÖşŞüÜ]/g, ch => TURKISH_CHAR_MAP[ch] || ch);
+  s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  s = s.toLowerCase();
+  s = s.replace(/[^a-z0-9\s-]/g, ' ');
+  const words = s.trim().split(/\s+/).filter(Boolean).slice(0, maxWords);
+  return words.join('-').replace(/-+/g, '-');
+}
+
 function $(id) { return document.getElementById(id); }
 
 function setStatus(msg, type) {
@@ -497,8 +511,35 @@ function clearAll() {
   $('manifest-output').textContent = '';
   $('tr-path').textContent = '';
   $('en-path').textContent = '';
+  slugDirty.id = false;
+  slugDirty.tr = false;
+  slugDirty.en = false;
   setStatus('');
 }
+
+const slugDirty = { id: false, tr: false, en: false };
+
+function syncMainSlug() {
+  if (!slugDirty.id) $('slug').value = $('en-slug').value;
+}
+
+function wireAutoSlug(titleId, slugId, key) {
+  $(titleId).addEventListener('input', () => {
+    if (!slugDirty[key]) $(slugId).value = slugify($(titleId).value);
+    if (key === 'en') syncMainSlug();
+  });
+  $(slugId).addEventListener('input', () => {
+    slugDirty[key] = $(slugId).value.trim() !== '';
+    if (key === 'en') syncMainSlug();
+  });
+}
+
+wireAutoSlug('tr-title', 'tr-slug', 'tr');
+wireAutoSlug('en-title', 'en-slug', 'en');
+
+$('slug').addEventListener('input', () => {
+  slugDirty.id = $('slug').value.trim() !== '';
+});
 
 function downloadFile(name, content) {
   const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
