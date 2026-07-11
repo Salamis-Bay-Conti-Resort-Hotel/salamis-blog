@@ -598,6 +598,20 @@ $('clear').addEventListener('click', clearAll);
 
 const isServed = location.protocol === 'http:' || location.protocol === 'https:';
 
+function getApiKey() {
+  if (window.__ADMIN_API_KEY__) return window.__ADMIN_API_KEY__;
+  let key = localStorage.getItem('adminApiKey');
+  if (!key) {
+    key = (prompt('Enter Admin API Key (ADMIN_API_KEY from your .env):') || '').trim();
+    if (key) localStorage.setItem('adminApiKey', key);
+  }
+  return key;
+}
+
+function clearApiKey() {
+  localStorage.removeItem('adminApiKey');
+}
+
 function updateFolderStatus() {
   const el = $('folder-status');
   if (!isServed) {
@@ -627,17 +641,21 @@ async function save() {
   const trTitle = $('tr-title').value.trim();
   const enTitle = $('en-title').value.trim();
 
+  const apiKey = getApiKey();
+  if (!apiKey) { setStatus('API key required to save.', 'err'); return; }
+
   try {
     setStatus('Saving…');
     const r = await fetch('/api/save', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', 'x-api-key': apiKey },
       body: JSON.stringify({
         id,
         tr: { slug: trSlug, title: trTitle, html: trText },
         en: { slug: enSlug, title: enTitle, html: enText },
       }),
     });
+    if (r.status === 401) clearApiKey();
     const data = await r.json().catch(() => ({}));
     if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
     setStatus(`Saved → ${data.files.tr}, ${data.files.en}, manifest updated.`, 'ok');
@@ -656,13 +674,18 @@ async function publish() {
   const slug = $('slug').value.trim();
   const title = $('tr-title').value.trim() || $('en-title').value.trim();
   if (!confirm('Commit article changes and push to GitHub?')) return;
+
+  const apiKey = getApiKey();
+  if (!apiKey) { setStatus('API key required to publish.', 'err'); return; }
+
   try {
     setStatus('Publishing…');
     const r = await fetch('/api/publish', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', 'x-api-key': apiKey },
       body: JSON.stringify({ slug, title }),
     });
+    if (r.status === 401) clearApiKey();
     const data = await r.json().catch(() => ({}));
     if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
     if (data.skipped) setStatus(data.message || 'Nothing to publish.', 'ok');

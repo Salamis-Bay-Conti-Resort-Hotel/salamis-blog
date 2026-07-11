@@ -8,6 +8,32 @@ const { execFile } = require('child_process');
 const ROOT = __dirname;
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const ARTICLES_DIR = path.join(PUBLIC_DIR, 'articles');
+
+// --- .env loader (built-in only; lets `node server.js` work with no flags) --
+
+function loadEnvFile(filePath) {
+  let content;
+  try {
+    content = fss.readFileSync(filePath, 'utf8');
+  } catch {
+    return;
+  }
+  for (const line of content.split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eq = trimmed.indexOf('=');
+    if (eq === -1) continue;
+    const key = trimmed.slice(0, eq).trim();
+    let value = trimmed.slice(eq + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+    }
+    if (!(key in process.env)) process.env[key] = value;
+  }
+}
+
+loadEnvFile(path.join(ROOT, '.env'));
+
 const PORT = process.env.PORT || 5173;
 
 // --- Startup configuration validation ---------------------------------------
@@ -207,7 +233,10 @@ async function serveStatic(req, res) {
     // Inline <script> in admin.html is allowed via a per-request nonce instead
     // of 'unsafe-inline', so injected script tags without the nonce are blocked.
     const nonce = crypto.randomBytes(16).toString('base64');
-    const nonced = html.replace('<script>', `<script nonce="${nonce}">`);
+    const nonced = html.replace(
+      '<script>',
+      `<script nonce="${nonce}">\nwindow.__ADMIN_API_KEY__ = ${JSON.stringify(ADMIN_API_KEY)};`
+    );
     const adminCsp = [
       "default-src 'self'",
       `script-src 'self' 'nonce-${nonce}'`,
