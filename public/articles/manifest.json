@@ -293,5 +293,16 @@
       "slug": "cyprus-without-car",
       "title": "Exploring Cyprus by Bus, Taxi & On Foot: A Practical Travel Guide"
     }
+  },
+  {
+    "id": "family-holidays-in-cyprus",
+    "tr": {
+      "slug": "kibris-cocuklu-aile-tatili-rehberi",
+      "title": "Kıbrıs Çocuklu Aile Tatili Rehberi | Gezilecek Yerler ve İpuçları"
+    },
+    "en": {
+      "slug": "family-holidays-in-cyprus",
+      "title": "Family Holidays in Cyprus: The Complete Parent's Guide to Fun, Safe & Stress-Free Travel"
+    }
   }
 ]
