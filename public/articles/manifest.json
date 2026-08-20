@@ -337,5 +337,16 @@
       "slug": "perfect-weekend-getaway-in-cyprus",
       "title": "Perfect Weekend Getaway in Cyprus | Top Places to Visit"
     }
+  },
+  {
+    "id": "boat-tour-routes-in-cyprus",
+    "tr": {
+      "slug": "kibris-tekne-turu-rotalari-en-guzel",
+      "title": "Kıbrıs Tekne Turu Rotaları | En Güzel Duraklar"
+    },
+    "en": {
+      "slug": "boat-tour-routes-in-cyprus",
+      "title": "Boat Tour Routes in Cyprus | Best Stops & Destinations"
+    }
   }
 ]
