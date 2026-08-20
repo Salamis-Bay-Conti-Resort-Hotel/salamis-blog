@@ -359,5 +359,16 @@
       "slug": "best-scuba-diving-spots-in-cyprus",
       "title": "Best Scuba Diving Spots in Cyprus | Top Dive Sites"
     }
+  },
+  {
+    "id": "what-is-holidaycheck-travel-guide",
+    "tr": {
+      "slug": "holidaycheck-nedir-tatil-rehberi",
+      "title": "HolidayCheck Nedir? Tatil Rehberi"
+    },
+    "en": {
+      "slug": "what-is-holidaycheck-travel-guide",
+      "title": "What Is HolidayCheck? Travel Guide"
+    }
   }
 ]
