@@ -132,7 +132,7 @@
     <li><code>Kapak Görsel: https://...</code> (or just a URL on the line right after the title) = cover image inside &lt;header&gt;.</li>
     <li>Lines that end with <code>:</code> become section titles (&lt;h2&gt;).</li>
     <li>Short standalone lines that don't end in <code>.</code> or <code>!</code> (e.g. a title-case line, or a question ending in <code>?</code>) are also detected as headings — even without a trailing colon or a blank line around them. Questions inside a "Frequently Asked Questions" section become &lt;h3&gt; sub-headings instead of new sections.</li>
-    <li>Any standalone URL line becomes a &lt;figure&gt; with auto alt + caption.</li>
+    <li>Any standalone URL line becomes an &lt;img&gt; with auto alt text.</li>
     <li>Put each heading and paragraph on its own line. Blank lines are optional now, but still recommended for readability — just make sure headings aren't run together with body text on the same line.</li>
   </ul>
 </details>
@@ -417,14 +417,9 @@ function parse(raw) {
   return result;
 }
 
-function figure(url, altSource) {
+function image(url, altSource) {
   const alt = altSource || 'image';
-  return [
-    '  <figure>',
-    `    <img src="${escapeHtml(url)}" alt="${escapeHtml(alt)}">`,
-    `    <figcaption>${escapeHtml(alt)}</figcaption>`,
-    '  </figure>'
-  ].join('\n');
+  return `  <img src="${escapeHtml(url)}" alt="${escapeHtml(alt)}">`;
 }
 
 function render(parsed, lang, pageTitle, metaDesc) {
@@ -434,22 +429,22 @@ function render(parsed, lang, pageTitle, metaDesc) {
   let body = '<header>\n';
   body += `  <h1>${escapeHtml(mainTitle)}</h1>\n`;
   if (parsed.cover) {
-    body += '\n' + figure(parsed.cover, altCtx) + '\n';
+    body += '\n' + image(parsed.cover, altCtx) + '\n';
   }
   for (const item of parsed.intro) {
     if (item.type === 'p') body += `\n  <p>${linkifyBrand(escapeHtml(item.text), lang)}</p>\n`;
-    else body += '\n' + figure(item.url, altCtx) + '\n';
+    else body += '\n' + image(item.url, altCtx) + '\n';
   }
   body += '</header>\n\n<main>\n';
 
   for (const sec of parsed.sections) {
     body += '\n<section>\n';
     body += `  <h2>${escapeHtml(sec.title)}</h2>\n`;
-    if (sec.image) body += '\n' + figure(sec.image.url, sec.title) + '\n';
+    if (sec.image) body += '\n' + image(sec.image.url, sec.title) + '\n';
     for (const item of sec.body) {
       if (item.type === 'p') body += `\n  <p>${linkifyBrand(escapeHtml(item.text), lang)}</p>\n`;
       else if (item.type === 'h3') body += `\n  <h3>${escapeHtml(item.title)}</h3>\n`;
-      else body += '\n' + figure(item.url, sec.title) + '\n';
+      else body += '\n' + image(item.url, sec.title) + '\n';
     }
     body += '</section>\n';
   }
