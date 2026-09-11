@@ -205,12 +205,14 @@ async function handleSave(req, res) {
     if (Array.isArray(parsed)) manifest = parsed;
   } catch {}
 
+  const idx = manifest.findIndex(e => e && e.id === id);
+  const existing = idx >= 0 ? manifest[idx] : null;
   const entry = {
     id,
+    datePublished: (existing && existing.datePublished) || new Date().toISOString().slice(0, 10),
     tr: { slug: tr.slug, title: tr.title || '' },
     en: { slug: en.slug, title: en.title || '' },
   };
-  const idx = manifest.findIndex(e => e && e.id === id);
   if (idx >= 0) manifest[idx] = entry;
   else manifest.push(entry);
 
