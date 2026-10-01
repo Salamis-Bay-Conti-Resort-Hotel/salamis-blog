@@ -62,6 +62,10 @@ const MIME = {
 
 const SLUG_RE = /^[a-zA-Z0-9-_]+$/;
 
+const MAX_LINK_KEYWORD_LEN = 200;
+const MAX_LINK_URL_LEN = 2000;
+const MAX_LINKS = 50;
+
 const MAX_BODY_BYTES = 1 * 1024 * 1024; // 1 MB
 
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
@@ -163,6 +167,52 @@ async function readBody(req, maxBytes) {
   return Buffer.concat(chunks).toString('utf8');
 }
 
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function escapeHtmlAttr(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+// Wraps every standalone occurrence of each {keyword, url} pair's keyword in
+// `html` with a link, unless it's already inside a tag/attribute or an <a>.
+function linkifyKeywords(html, links) {
+  if (!Array.isArray(links) || !links.length) return html;
+  let result = html;
+  let applied = 0;
+  for (const entry of links) {
+    if (applied >= MAX_LINKS) break;
+    if (!entry || typeof entry.keyword !== 'string' || typeof entry.url !== 'string') continue;
+    const keyword = entry.keyword.trim();
+    const url = entry.url.trim();
+    if (!keyword || keyword.length > MAX_LINK_KEYWORD_LEN) continue;
+    if (!url || url.length > MAX_LINK_URL_LEN || !/^https?:\/\//i.test(url)) continue;
+
+    const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(keyword)}(?![\\p{L}\\p{N}])`, 'gu');
+    const safeUrl = escapeHtmlAttr(url);
+
+    result = result.replace(pattern, (match, offset, str) => {
+      const before = str.slice(Math.max(0, offset - 300), offset);
+      const lastOpenTag = before.lastIndexOf('<');
+      const lastCloseTag = before.lastIndexOf('>');
+      if (lastOpenTag > lastCloseTag) return match; // inside a tag/attribute
+
+      const lastOpenA = before.lastIndexOf('<a ');
+      const lastCloseA = before.lastIndexOf('</a>');
+      if (lastOpenA > lastCloseA) return match; // already inside a link
+
+      return `<a href="${safeUrl}" target="_blank" rel="noopener">${match}</a>`;
+    });
+    applied += 1;
+  }
+  return result;
+}
+
 async function handleSave(req, res) {
   if (contentLengthExceeds(req, MAX_BODY_BYTES)) {
     return send(res, 413, { error: 'payload too large' });
@@ -181,7 +231,7 @@ async function handleSave(req, res) {
   try { body = JSON.parse(raw); }
   catch { return send(res, 400, { error: 'invalid JSON body' }); }
 
-  const { id, tr, en } = body || {};
+  const { id, tr, en, links } = body || {};
   if (!id || !tr || !en || !tr.slug || !en.slug || tr.html == null || en.html == null) {
     return send(res, 400, { error: 'missing fields: id, tr.slug, tr.html, en.slug, en.html' });
   }
@@ -192,10 +242,13 @@ async function handleSave(req, res) {
   await fs.mkdir(path.join(ARTICLES_DIR, 'tr'), { recursive: true });
   await fs.mkdir(path.join(ARTICLES_DIR, 'en'), { recursive: true });
 
+  const trHtml = linkifyKeywords(tr.html, links);
+  const enHtml = linkifyKeywords(en.html, links);
+
   const trPath = path.join(ARTICLES_DIR, 'tr', tr.slug + '.html');
   const enPath = path.join(ARTICLES_DIR, 'en', en.slug + '.html');
-  await fs.writeFile(trPath, tr.html, 'utf8');
-  await fs.writeFile(enPath, en.html, 'utf8');
+  await fs.writeFile(trPath, trHtml, 'utf8');
+  await fs.writeFile(enPath, enHtml, 'utf8');
 
   const manifestPath = path.join(ARTICLES_DIR, 'manifest.json');
   let manifest = [];

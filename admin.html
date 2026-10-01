@@ -143,6 +143,11 @@
     <label for="slug">Slug ID (used in manifest "id")</label>
     <input id="slug" type="text" placeholder="cyprus-places-guide" />
   </div>
+  <div class="row">
+    <label for="link-keywords">Keyword Links (optional) — one per line: <code>keyword =&gt; URL</code>. Every exact match in both TR and EN content gets linked; matches already inside an existing link are left alone.</label>
+    <textarea id="link-keywords" placeholder="Kıbrıs otelleri => https://salamisbayconti.com
+Cyprus hotels => https://salamisbayconti.com/en"></textarea>
+  </div>
 </div>
 
 <div class="grid">
@@ -303,12 +308,6 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
-const BRAND_RE = /Salamis\s+Bay\s+Conti/gi;
-
-function linkifyBrand(escapedText, lang) {
-  const href = lang === 'en' ? 'https://salamisbayconti.com/en' : 'https://salamisbayconti.com';
-  return escapedText.replace(BRAND_RE, (match) => `<a href="${href}" target="_blank" rel="noopener">${match}</a>`);
-}
 
 function looksLikeHeading(line) {
   const t = line.trim();
@@ -432,7 +431,7 @@ function render(parsed, lang, pageTitle, metaDesc) {
     body += '\n' + image(parsed.cover, altCtx) + '\n';
   }
   for (const item of parsed.intro) {
-    if (item.type === 'p') body += `\n  <p>${linkifyBrand(escapeHtml(item.text), lang)}</p>\n`;
+    if (item.type === 'p') body += `\n  <p>${escapeHtml(item.text)}</p>\n`;
     else body += '\n' + image(item.url, altCtx) + '\n';
   }
   body += '</header>\n\n<main>\n';
@@ -442,7 +441,7 @@ function render(parsed, lang, pageTitle, metaDesc) {
     body += `  <h2>${escapeHtml(sec.title)}</h2>\n`;
     if (sec.image) body += '\n' + image(sec.image.url, sec.title) + '\n';
     for (const item of sec.body) {
-      if (item.type === 'p') body += `\n  <p>${linkifyBrand(escapeHtml(item.text), lang)}</p>\n`;
+      if (item.type === 'p') body += `\n  <p>${escapeHtml(item.text)}</p>\n`;
       else if (item.type === 'h3') body += `\n  <h3>${escapeHtml(item.title)}</h3>\n`;
       else body += '\n' + image(item.url, sec.title) + '\n';
     }
@@ -526,8 +525,22 @@ function generate() {
   setStatus('Generated.', 'ok');
 }
 
+function parseLinkKeywords(raw) {
+  const links = [];
+  (raw || '').split('\n').forEach(line => {
+    const trimmed = line.trim();
+    if (!trimmed) return;
+    const idx = trimmed.indexOf('=>');
+    if (idx === -1) return;
+    const keyword = trimmed.slice(0, idx).trim();
+    const url = trimmed.slice(idx + 2).trim();
+    if (keyword && url) links.push({ keyword, url });
+  });
+  return links;
+}
+
 function clearAll() {
-  ['slug','tr-slug','en-slug','tr-title','en-title','tr-desc','en-desc','tr-content','en-content']
+  ['slug','tr-slug','en-slug','tr-title','en-title','tr-desc','en-desc','tr-content','en-content','link-keywords']
     .forEach(id => { $(id).value = ''; });
   $('tr-output').textContent = '';
   $('en-output').textContent = '';
@@ -676,6 +689,7 @@ async function save() {
         id,
         tr: { slug: trSlug, title: trTitle, html: trText },
         en: { slug: enSlug, title: enTitle, html: enText },
+        links: parseLinkKeywords($('link-keywords').value),
       }),
     });
     if (r.status === 401) clearApiKey();
