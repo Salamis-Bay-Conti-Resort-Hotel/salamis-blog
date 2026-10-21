@@ -145,8 +145,8 @@
   </div>
   <div class="row">
     <label for="link-keywords">Keyword Links (optional) — one per line: <code>keyword =&gt; URL</code>. Every exact match in both TR and EN content gets linked; matches already inside an existing link are left alone.</label>
-    <textarea id="link-keywords" placeholder="Kıbrıs otelleri => https://salamisbayconti.com
-Cyprus hotels => https://salamisbayconti.com/en"></textarea>
+    <textarea id="link-keywords">Kıbrıs otelleri => https://salamisbayconti.com
+Cyprus hotels => https://salamisbayconti.com/en</textarea>
   </div>
 </div>
 
@@ -540,8 +540,9 @@ function parseLinkKeywords(raw) {
 }
 
 function clearAll() {
-  ['slug','tr-slug','en-slug','tr-title','en-title','tr-desc','en-desc','tr-content','en-content','link-keywords']
+  ['slug','tr-slug','en-slug','tr-title','en-title','tr-desc','en-desc','tr-content','en-content']
     .forEach(id => { $(id).value = ''; });
+  $('link-keywords').value = $('link-keywords').defaultValue;
   $('tr-output').textContent = '';
   $('en-output').textContent = '';
   $('manifest-output').textContent = '';
